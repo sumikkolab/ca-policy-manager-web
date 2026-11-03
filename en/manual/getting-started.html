@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | Getting started | Sumikko Lab</title>
+<meta name="description" content="The steps to install CA Policy Manager and retrieve sign-in logs for the first time.">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/manual/getting-started.html">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/manual/getting-started.html">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/manual/getting-started.html">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/manual/getting-started.html">
+<meta property="og:title" content="CA Policy Manager | Getting started | Sumikko Lab">
+<meta property="og:description" content="The steps to install CA Policy Manager and retrieve sign-in logs for the first time.">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/manual/getting-started.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../manual/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-toggle"><a href="../../manual/getting-started.html">日本語</a></div>
+  <div class="nav-links"><a href="../index.html">Product</a><a href="../manual/index.html">Manual</a><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms-of-use.html">Terms of Use</a><a href="../support.html">Support</a></div>
+  <h1>Getting started</h1>
+  <p class="subtitle">From installation to the first retrieval</p>
+  <h2>System requirements</h2>
+  <ul>
+    <li>OS: Windows 10 version 2004 or later, Windows 11</li>
+    <li>Network: a connection to Microsoft sign-in and Microsoft Graph</li>
+    <li>License: Microsoft Entra ID P1 or P2</li>
+    <li>Account: a work or school account. The Global Reader role is recommended (<a href="app-registration.html">prerequisites</a>).</li>
+  </ul>
+  <h2>Steps</h2>
+  <ol>
+    <li>Install the app from <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a>.</li>
+    <li>Start the app and read the Terms of Use and Disclaimer. If you select Do not agree (exit), the app closes. Nothing is retrieved or stored until you agree.</li>
+    <li><a href="app-registration.html">Register an app</a> in the Microsoft Entra admin center.</li>
+    <li>Select the gear icon to open Settings, select Connection settings, and <a href="connection.html">enter the tenant ID and the client ID</a>.</li>
+    <li>Select a time range at the top, then select Retrieve. Sign in when the Windows sign-in dialog appears.</li>
+  </ol>
+  <h2>Time range</h2>
+  <ul>
+    <li>Select 24 hours, 7 days, 30 days, or a custom period (30 days at most).</li>
+    <li>Select Only information since the last retrieval to retrieve only what is new since then.</li>
+    <li>Only interactive sign-ins are retrieved.</li>
+    <li>The log retention period depends on your license. The range actually retrieved is shown on the screen.</li>
+  </ul>
+  <h2>Buying the paid edition</h2>
+  <p>CA simulation, report-only policy evaluation, change proposals, and CSV and HTML export are available in the paid edition. The paid edition is a one-time purchase add-on in Microsoft Store. Select Buy the paid edition in the app. If the purchase status cannot be confirmed, paid features are unavailable.</p>
+  <div class="chapter-nav"><a href="index.html">Contents</a><a href="app-registration.html">Next: App registration</a></div>
+  <p class="updated">Last updated: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-use.html">Terms of Use</a> | <a href="../manual/index.html">Manual</a> | <a href="../support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

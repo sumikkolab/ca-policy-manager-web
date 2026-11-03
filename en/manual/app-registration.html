@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | App registration in Microsoft Entra | Sumikko Lab</title>
+<meta name="description" content="The steps and permissions for registering an app in the Microsoft Entra admin center to use CA Policy Manager.">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/manual/app-registration.html">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/manual/app-registration.html">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/manual/app-registration.html">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/manual/app-registration.html">
+<meta property="og:title" content="CA Policy Manager | App registration in Microsoft Entra | Sumikko Lab">
+<meta property="og:description" content="The steps and permissions for registering an app in the Microsoft Entra admin center to use CA Policy Manager.">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/manual/app-registration.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../manual/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-toggle"><a href="../../manual/app-registration.html">日本語</a></div>
+  <div class="nav-links"><a href="../index.html">Product</a><a href="../manual/index.html">Manual</a><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms-of-use.html">Terms of Use</a><a href="../support.html">Support</a></div>
+  <h1>App registration</h1>
+  <p class="subtitle">The steps in the Microsoft Entra admin center</p>
+  <p>CA Policy Manager signs in through an app registered in your tenant. You do this once, at the start. Client secrets and certificates are not used.</p>
+  <div class="info-box"><p>The names in the admin center may change.</p></div>
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>License: Microsoft Entra ID P1 or P2</li>
+    <li>Role of the user who signs in: Global Reader is recommended. It can read the Conditional Access results and every policy property. With Reports Reader alone, the applied policy information is left out of the response.</li>
+    <li>Admin consent: a Privileged Role Administrator grants it.</li>
+  </ul>
+  <h2>1. Register the app</h2>
+  <ol>
+    <li>In the Microsoft Entra admin center, open Entra ID &gt; App registrations &gt; New registration.</li>
+    <li>Enter a Name (for example, CA Policy Manager).</li>
+    <li>Under Supported account types, select the type that covers only your organization's tenant, then register.</li>
+  </ol>
+  <h2>2. Add the redirect URIs</h2>
+  <ol>
+    <li>In the registered app, open Authentication &gt; Redirect URI configuration &gt; Add Redirect URI &gt; Mobile and desktop applications &gt; Custom redirect URIs &gt; Configure.</li>
+    <li>Add these two URIs and save. Replace <code>&lt;client ID&gt;</code> with the Application (client) ID shown on Overview.
+      <ul>
+        <li><code>ms-appx-web://microsoft.aad.brokerplugin/&lt;client ID&gt;</code> (used for a normal sign-in)</li>
+        <li><code>https://login.microsoftonline.com/common/oauth2/nativeclient</code> (used when the sign-in shows a browser)</li>
+      </ul>
+    </li>
+  </ol>
+  <h2>3. Add the permissions</h2>
+  <p>Open API permissions &gt; Add a permission &gt; Microsoft Graph &gt; Delegated permissions, select these permissions, then select Add permissions. These are the permissions the app shows in its connection settings.</p>
+  <table class="manual-table">
+    <tr><th>Permission</th><th>Type</th><th>Used for</th></tr>
+    <tr><td><code>AuditLog.Read.All</code></td><td>Required</td><td>Reading sign-in logs</td></tr>
+    <tr><td><code>Policy.Read.All</code></td><td>Required</td><td>Reading Conditional Access policy definitions and named locations</td></tr>
+    <tr><td><code>User.Read.All</code></td><td>Required</td><td>Reading users' group membership and type (such as guest)</td></tr>
+    <tr><td><code>Application.Read.All</code></td><td>Optional</td><td>Reading application display names. All other features remain available without it.</td></tr>
+    <tr><td><code>GroupMember.Read.All</code></td><td>Optional</td><td>Reading group names, members, and parent groups. All other features remain available without it.</td></tr>
+  </table>
+  <h2>4. Grant admin consent</h2>
+  <p>Under API permissions, select Grant admin consent for {tenant}. A Privileged Role Administrator does this. The app asks for consent to optional permissions when they are needed.</p>
+  <h2>5. Note the IDs</h2>
+  <p>Note the Application (client) ID and the Directory (tenant) ID shown on Overview, and enter them in the <a href="connection.html">connection settings</a>.</p>
+  <div class="chapter-nav"><a href="getting-started.html">Previous: Getting started</a><a href="connection.html">Next: Connection settings</a></div>
+  <p class="updated">Last updated: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-use.html">Terms of Use</a> | <a href="../manual/index.html">Manual</a> | <a href="../support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

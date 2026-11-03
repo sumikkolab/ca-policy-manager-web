@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | データの保存と削除 | Sumikko Lab</title>
+<meta name="description" content="CA Policy Manager がこの PC に保存する情報、暗号化の有無、削除の範囲を説明します。">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/manual/data.html">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/manual/data.html">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/manual/data.html">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/manual/data.html">
+<meta property="og:title" content="CA Policy Manager | データの保存と削除 | Sumikko Lab">
+<meta property="og:description" content="CA Policy Manager がこの PC に保存する情報、暗号化の有無、削除の範囲を説明します。">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/manual/data.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../manual/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-toggle"><a href="../en/manual/data.html">English</a></div>
+  <div class="nav-links"><a href="../index.html">製品情報</a><a href="../manual/index.html">マニュアル</a><a href="../privacy-policy.html">プライバシーポリシー</a><a href="../terms-of-use.html">利用規約</a><a href="../support.html">サポート</a></div>
+  <h1>データの保存と削除</h1>
+  <p class="subtitle">保存する情報と削除の範囲</p>
+  <h2>保存する場所</h2>
+  <p>保存先は、現在の Windows ユーザーのローカル アプリケーション データにある CaPolicyManager フォルダーです。保存先はこの PC の中だけで、取得した情報を発行元や第三者に送信しません。</p>
+  <h2>保存する情報</h2>
+  <table class="manual-table">
+    <tr><th>情報</th><th>暗号化</th><th>保持</th></tr>
+    <tr><td>サインインの記録(日時、結果、適用ポリシー、完全な IP アドレスなど。ユーザー名はハッシュ化します)</td><td>なし</td><td>自動では削除しません。同じ期間を再取得すると置き換わります。</td></tr>
+    <tr><td>ユーザーの表示名、ユーザー名(UPN)</td><td>あり</td><td>サインインの記録が残る間</td></tr>
+    <tr><td>ユーザー ID、グループ所属</td><td>あり</td><td>取得から 7 日</td></tr>
+    <tr><td>ポリシー定義、ネームドロケーション</td><td>あり</td><td>既定は 5 世代、最後の取得から 90 日。設定で変更できます。</td></tr>
+    <tr><td>接続設定(テナント ID、クライアント ID)、緊急アクセスの指定</td><td>あり</td><td>変更するまで</td></tr>
+    <tr><td>ランダムな値(salt。ユーザー名のハッシュ化に使います)</td><td>あり</td><td>期限なし。「保存したデータを削除」でも残ります。</td></tr>
+    <tr><td>アプリの表示名</td><td>なし</td><td>期限なし</td></tr>
+    <tr><td>表示の設定、同意の記録</td><td>なし</td><td>変更するまで</td></tr>
+  </table>
+  <p>アクセストークンはファイルに保存せず、メモリ上にだけ保持します。緊急アクセスの検索とポリシーの点検で読み取るユーザーとグループの名前、グループのメンバーと上位のグループは、メモリ上にだけ保持します。</p>
+  <h2>保存したデータを削除する</h2>
+  <ol>
+    <li>設定の「保存したデータを削除」を選択します。</li>
+    <li>確認の画面で「削除する」を選択します。削除は元に戻せません。</li>
+  </ol>
+  <h3>削除されるもの</h3>
+  <ul>
+    <li>サインインログ(データベース、ジャーナル ファイル、退避したファイル、移行前のバックアップ、取得範囲)</li>
+    <li>ユーザー名(表示名と UPN)、UPN キャッシュ、ユーザー ID、グループ所属</li>
+    <li>ポリシー定義(ネームドロケーションを含む)</li>
+  </ul>
+  <h3>残るもの</h3>
+  <ul>
+    <li>設定(接続設定を含む)</li>
+    <li>同意の記録</li>
+    <li>ランダムな値(salt)</li>
+    <li>アプリの表示名</li>
+  </ul>
+  <p>「緊急アクセスの設定を残す」は既定でオンです。オフにすると、緊急アクセスの指定も削除します。ポリシー定義とネームドロケーションの保存は設定でオフにでき、オフにすると保存済みのデータを削除します。</p>
+  <div class="warn-box"><p>CSV、HTML、変更案としてエクスポートしたファイルは、指定した場所に保存され、この削除の対象外です。ユーザーの名前と IP アドレスが含まれることがあるため、組織の規程に従って管理してください。</p></div>
+  <h2>接続先のテナントを切り替えるとき</h2>
+  <p>サインインしたテナントが保存データのテナントと異なるときは、取得の前に確認を表示します。「はい」を選択すると、前のテナントの保存データ(サインインログ、ユーザー名、UPN キャッシュ、ユーザー ID、ポリシー定義、緊急アクセスの指定、アプリの表示名)を削除して取得します。削除したデータは元に戻せません。緊急アクセスの指定以外の設定と、同意は残ります。「はい」を選択しないときは取得を中止し、保存データは変更しません。</p>
+  <div class="chapter-nav"><a href="screens.html">前へ: 主要な画面の見方</a><a href="index.html">目次</a></div>
+  <p class="updated">最終更新: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-use.html">利用規約</a> | <a href="../manual/index.html">マニュアル</a> | <a href="../support.html">サポート</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

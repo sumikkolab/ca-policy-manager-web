@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | 主要な画面の見方 | Sumikko Lab</title>
+<meta name="description" content="CA Policy Manager のホーム、現状と点検、調査、CAシミュレーション、レポート専用ポリシーの評価、傾向、設定の見方を説明します。">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/manual/screens.html">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/manual/screens.html">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/manual/screens.html">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/manual/screens.html">
+<meta property="og:title" content="CA Policy Manager | 主要な画面の見方 | Sumikko Lab">
+<meta property="og:description" content="CA Policy Manager のホーム、現状と点検、調査、CAシミュレーション、レポート専用ポリシーの評価、傾向、設定の見方を説明します。">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/manual/screens.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../manual/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-toggle"><a href="../en/manual/screens.html">English</a></div>
+  <div class="nav-links"><a href="../index.html">製品情報</a><a href="../manual/index.html">マニュアル</a><a href="../privacy-policy.html">プライバシーポリシー</a><a href="../terms-of-use.html">利用規約</a><a href="../support.html">サポート</a></div>
+  <h1>主要な画面の見方</h1>
+  <p class="subtitle">画像はすべてデモの合成データです</p>
+  <h2>ホーム</h2>
+  <p>データの取得状況、今日の状況、サインインの検索を表示します。今日の状況の 3 つの数は次のとおりです。</p>
+  <ul>
+    <li>対応が必要: 推奨ポリシーのうち、満たしていない項目の数</li>
+    <li>適用ポリシーなしの条件: ポリシーの設定から数えた条件の数。ログの件数ではありません。</li>
+    <li>ベースラインとの差: ベースラインとの比較で検出した数。サインインの件数ではありません。</li>
+  </ul>
+  <p>サインインの検索には、結果ごとの件数と、ポリシーの記録が無いサインインなどの観点ごとの件数を表示します。選択すると調査を開きます。</p>
+  <p>適用ポリシーを記録していない旧形式の行があるときは、データの取得状況に「旧形式 N 件」と表示します。旧形式の行は、観点別の件数に含めません。</p>
+  <figure><img src="images/home.png" alt="ホーム画面" width="1264" height="952"><figcaption>ホーム</figcaption></figure>
+  <h2>現状と点検</h2>
+  <p>現在のポリシーが、選択したカテゴリの推奨ポリシーを満たしているかを確認します。「現在の設定」と「推奨を適用した場合」を切り替えられます。Microsoft Graph で取得できない設定を含むポリシーは、管理センターでの確認を案内します。</p>
+  <figure><img src="images/current-state.png" alt="現状と点検の画面" width="1264" height="952"><figcaption>現状と点検</figcaption></figure>
+  <h2>調査</h2>
+  <p>サインインの一覧を、期間、ユーザー、アプリ、結果で絞り込みます。行を選択すると、ブロックされた理由または許可された理由を表示します。結果の値が無いサインインは「結果の記録なし」、認識できない値のサインインは「その他の結果」と表示します。「ポリシーの点検」で、ポリシーの構成を確認できます。有償版では、表示中のサインインを CSV と HTML にエクスポートできます。</p>
+  <figure><img src="images/investigation.png" alt="調査の画面。サインインの一覧と絞り込みの条件を表示している" width="1264" height="952"><figcaption>調査</figcaption></figure>
+  <h2>CAシミュレーション<span class="pro-badge">有償版</span></h2>
+  <p>ユーザー、アプリ、クライアント、デバイス、場所、リスクなどの条件を指定すると、結果(アクセスブロック、MFA を求められる、ポリシー未適用でアクセス可など)と判定の流れを表示します。入力した IP アドレスは画面の中だけで使い、保存もエクスポートもしません。この結果は Microsoft の公式の評価ではありません。</p>
+  <figure><img src="images/simulation.png" alt="CAシミュレーションの画面。指定した条件に対する結果と判定の流れを表示している" width="1264" height="952"><figcaption>CAシミュレーション</figcaption></figure>
+  <h2>レポート専用ポリシーの評価<span class="pro-badge">有償版</span></h2>
+  <p>既存の有効なポリシーに、選択したレポート専用ポリシーを追加した場合の結果を計算します。サインインログは使わず、ポリシーの設定から計算します。「現在」と「追加後」を切り替えられます。適用ポリシーなしの条件の組み合わせが、追加によって何件減るかも表示します。テナントの設定は変更しません。</p>
+  <figure><img src="images/report-only-evaluation.png" alt="レポート専用ポリシーの評価の画面。追加後の結果の変化を表示している" width="1264" height="952"><figcaption>レポート専用ポリシーの評価</figcaption></figure>
+  <h2>傾向</h2>
+  <p>期間を選択すると、サインインの数の変化と内訳(成功、失敗、中断、未適用、その他の結果)を表示します。その他の結果は、値が無い、または認識できない結果です。アプリの急増、失敗の割合、時間帯の偏りを、ベースラインと比較します。</p>
+  <figure><img src="images/trends.png" alt="傾向の画面。ベースラインとの差とサインインの数の変化を表示している" width="1264" height="952"><figcaption>傾向</figcaption></figure>
+  <h2>設定</h2>
+  <p>時刻の表示、言語、ユーザーの表示方法(名前、ユーザー名、匿名)、接続設定、緊急アクセス アカウント、保存したデータの削除を扱います。言語の変更は、次回の起動から反映されます。</p>
+  <figure><img src="images/settings.png" alt="設定の画面" width="1264" height="952"><figcaption>設定</figcaption></figure>
+  <div class="chapter-nav"><a href="connection.html">前へ: 接続設定</a><a href="data.html">次へ: データの保存と削除</a></div>
+  <p class="updated">最終更新: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-use.html">利用規約</a> | <a href="../manual/index.html">マニュアル</a> | <a href="../support.html">サポート</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

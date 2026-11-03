@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | Find Conditional Access gaps from logs and policies | Sumikko Lab</title>
+<meta name="description" content="A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/">
+<meta property="og:title" content="CA Policy Manager | Find Conditional Access gaps from logs and policies | Sumikko Lab">
+<meta property="og:description" content="A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../manual/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CA Policy Manager",
+  "description": "A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.",
+  "dateModified": "2026-11-03",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
+  "publisher": { "@type": "Organization", "name": "Sumikko Lab" }
+}
+</script>
+</head>
+<body>
+<div class="hero">
+  <h1>CA Policy Manager — A read-only app that finds Conditional Access gaps from logs and policies</h1>
+  <p>A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.</p>
+  <div class="hero-buttons">
+    <a class="store-btn" href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Get it from Microsoft Store</a>
+    <a class="manual-btn" href="manual/index.html">Manual</a>
+  </div>
+</div>
+<div class="container">
+  <div class="lang-toggle"><a href="../index.html">日本語</a></div>
+  <div class="nav-links"><a href="index.html">Product</a><a href="manual/index.html">Manual</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="support.html">Support</a></div>
+  <div class="why-section">
+    <h2>The problem it solves</h2>
+    <p>As Conditional Access policies grow in number, it becomes hard to tell from the admin center alone which policies applied to a sign-in and which conditions no policy covers.</p>
+    <p>CA Policy Manager brings the sign-in logs and policy definitions read from Microsoft Graph into one place. You can check:</p>
+    <ul>
+      <li>Which conditions have no policy applied</li>
+      <li>Whether your current policies meet the recommendations in the Microsoft Learn templates</li>
+      <li>Why a sign-in was blocked or allowed</li>
+      <li>How the result changes when you add report-only policies (paid edition)</li>
+    </ul>
+  </div>
+
+  <h2>What it does</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Coverage gaps</h3>
+      <ul>
+        <li>Home shows the items that need action, the conditions with no policy applied, and the deviations from the baseline.</li>
+        <li>Conditions with no policy applied are counted from the policy settings.</li>
+        <li>Home shows the number of sign-ins with no policy record, and the Investigate tab lists them.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Comparison with recommended policies</h3>
+      <ul>
+        <li>Checks whether your current policies meet the recommendations, for each template category in Microsoft Learn.</li>
+        <li>Separates results into groups such as Needs action, Policy contains settings this app cannot retrieve, Applies to only some users, and recommendations already met.</li>
+        <li>Shows a flow diagram by user type, device type, OS, and location.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Sign-in investigation</h3>
+      <ul>
+        <li>Filters sign-ins by period, user, app, and result.</li>
+        <li>Select a row to see why the sign-in was blocked or allowed.</li>
+        <li>Checks the groups the policies use and the exclusion of emergency access accounts.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Trends</h3>
+      <ul>
+        <li>Shows changes in sign-in counts by success, failure, interrupted, not applied, and other result.</li>
+        <li>Shows deviations from the baseline, such as a sudden increase for an app.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>CA simulation<span class="pro-badge">Paid edition</span></h3>
+      <ul>
+        <li>Calculates the policies that apply and the result (such as Access blocked, MFA required, or No policy applied: access allowed) for conditions you specify, such as user, app, location, and risk.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Report-only policy evaluation<span class="pro-badge">Paid edition</span></h3>
+      <ul>
+        <li>Calculates from the policy settings how the result changes when report-only policies are added.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Change proposals<span class="pro-badge">Paid edition</span></h3>
+      <ul>
+        <li>Creates a report-only policy JSON and a set of steps as text.</li>
+        <li>An administrator applies the change in the admin center.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>CSV and HTML export<span class="pro-badge">Paid edition</span></h3>
+      <ul>
+        <li>Exports investigation results to CSV and to an HTML report.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Who it is for</h2>
+  <ul>
+    <li>IT administrators who manage their own organization's Microsoft Entra tenant</li>
+    <li>Staff who want to review the current state and the expected result before changing Conditional Access policies</li>
+  </ul>
+
+  <h2>Screenshots</h2>
+  <figure>
+    <img src="../manual/images/home-en.png" alt="The Home screen showing items that need action, conditions with no policy applied, the deviation from the baseline, and sign-in results" width="1264" height="952">
+    <figcaption>Home (synthetic demo data)</figcaption>
+  </figure>
+  <figure>
+    <img src="../manual/images/current-state-en.png" alt="The Current state and checks screen showing the comparison with recommended policies by category" width="1264" height="952">
+    <figcaption>Current state and checks (synthetic demo data)</figcaption>
+  </figure>
+
+  <h2>Get the app and system requirements</h2>
+  <ul>
+    <li>Get it from: <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a></li>
+    <li>The app is free to get.</li>
+    <li>Paid edition: a one-time purchase add-on in Microsoft Store. Buy it from the purchase button in the app.</li>
+    <li>OS: Windows 10 version 2004 or later, Windows 11</li>
+    <li>Languages: Japanese, English</li>
+    <li>License: Microsoft Entra ID P1 or P2</li>
+    <li>Before you start: an app registration in the Microsoft Entra admin center (<a href="manual/app-registration.html">steps</a>)</li>
+    <li>Network: a connection to Microsoft sign-in and Microsoft Graph is required.</li>
+  </ul>
+  <h3>How to start</h3>
+  <ol>
+    <li>Install the app from Microsoft Store and agree to the Terms of Use.</li>
+    <li><a href="manual/app-registration.html">Register an app</a> in the Microsoft Entra admin center.</li>
+    <li>Enter the tenant ID and the client ID in the <a href="manual/connection.html">connection settings</a>, then run the connection test.</li>
+    <li>On Home, select a time range, then select Retrieve (<a href="manual/getting-started.html">detailed steps</a>).</li>
+  </ol>
+
+  <h2>Frequently asked questions</h2>
+  <h3>Does the app change my tenant's policies or settings?</h3>
+  <p>No. CA Policy Manager is read-only, and its requests to Microsoft Graph are GET only. Change proposals are exported as text, and an administrator applies them.</p>
+  <h3>Where is the retrieved data stored?</h3>
+  <p>Only on this PC, in the current Windows user's folder. It is not sent to the publisher or to any third party. User names and group membership, policy definitions, and connection settings are encrypted. Sign-in records, application display names, and the consent record are not encrypted. See <a href="manual/data.html">Data storage and deletion</a> for details.</p>
+  <h3>Which permissions does the app need?</h3>
+  <p>The required permissions are AuditLog.Read.All, Policy.Read.All, and User.Read.All. The optional permissions are Application.Read.All and GroupMember.Read.All. All are read-only delegated permissions.</p>
+  <h3>Are the results an official Microsoft evaluation?</h3>
+  <p>No. They are estimates from the app's own computation and may differ from Microsoft's actual decisions. Before changing a policy, verify in a test environment or in report-only mode.</p>
+  <h3>How do I contact support?</h3>
+  <p>Send an email to <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>.</p>
+  <p class="updated">Last updated: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a> | <a href="manual/index.html">Manual</a> | <a href="support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

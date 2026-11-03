@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | Data storage and deletion | Sumikko Lab</title>
+<meta name="description" content="What CA Policy Manager stores on this PC, what is encrypted, and what is deleted.">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/manual/data.html">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/manual/data.html">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/manual/data.html">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/manual/data.html">
+<meta property="og:title" content="CA Policy Manager | Data storage and deletion | Sumikko Lab">
+<meta property="og:description" content="What CA Policy Manager stores on this PC, what is encrypted, and what is deleted.">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/manual/data.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../manual/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-toggle"><a href="../../manual/data.html">日本語</a></div>
+  <div class="nav-links"><a href="../index.html">Product</a><a href="../manual/index.html">Manual</a><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms-of-use.html">Terms of Use</a><a href="../support.html">Support</a></div>
+  <h1>Data storage and deletion</h1>
+  <p class="subtitle">What is stored and what is deleted</p>
+  <h2>Where data is stored</h2>
+  <p>Data is stored in the CaPolicyManager folder in the local application data of the current Windows user on this PC. Retrieved information is not sent to the publisher or to any third party.</p>
+  <h2>What is stored</h2>
+  <table class="manual-table">
+    <tr><th>Information</th><th>Encrypted</th><th>Kept</th></tr>
+    <tr><td>Sign-in records (including time, result, applied policies, and full IP address; user names are hashed)</td><td>No</td><td>Not deleted automatically. Replaced when the same period is retrieved again.</td></tr>
+    <tr><td>User display names and user names (UPN)</td><td>Yes</td><td>While the sign-in records remain</td></tr>
+    <tr><td>User IDs and group membership</td><td>Yes</td><td>7 days from retrieval</td></tr>
+    <tr><td>Policy definitions and named locations</td><td>Yes</td><td>By default, 5 generations and 90 days from the last retrieval. You can change this in Settings.</td></tr>
+    <tr><td>Connection settings (tenant ID and client ID) and emergency access entries</td><td>Yes</td><td>Until you change them</td></tr>
+    <tr><td>A random value (salt, used to hash user names)</td><td>Yes</td><td>No limit. Delete stored data does not remove it.</td></tr>
+    <tr><td>Application display names</td><td>No</td><td>No limit</td></tr>
+    <tr><td>Display settings and the consent record</td><td>No</td><td>Until you change them</td></tr>
+  </table>
+  <p>Access tokens are kept in memory only and are never written to a file. The user and group names, group members, and parent groups read for the emergency access search and the policy check are also kept in memory only.</p>
+  <h2>Delete stored data</h2>
+  <ol>
+    <li>In Settings, select Delete stored data.</li>
+    <li>On the confirmation screen, select Delete. This cannot be undone.</li>
+  </ol>
+  <h3>What is deleted</h3>
+  <ul>
+    <li>Sign-in logs (the database with its journal files, files set aside, backups made before a migration, and the retrieved ranges)</li>
+    <li>User names (display names and UPNs), the UPN cache, user IDs, and group membership</li>
+    <li>Policy definitions (including named locations)</li>
+  </ul>
+  <h3>What is kept</h3>
+  <ul>
+    <li>Settings (including connection settings)</li>
+    <li>The consent record</li>
+    <li>The random value (salt)</li>
+    <li>Application display names</li>
+  </ul>
+  <p>Keep the emergency access setting is on by default. If you turn it off, the emergency access entries are also deleted. You can turn off saving policy definitions and named locations in Settings; turning it off deletes what was saved.</p>
+  <div class="warn-box"><p>CSV, HTML, and change proposal files you export are saved where you choose and are not part of this deletion. They may contain user names and IP addresses, so manage them according to your organization's policies.</p></div>
+  <h2>When you switch the connected tenant</h2>
+  <p>If the tenant you sign in to differs from the tenant of the stored data, the app asks for confirmation before it retrieves data. If you select Yes, the app deletes the stored data of the previous tenant (sign-in logs, user names, UPN cache, user IDs, policy definitions, emergency access settings, and application names) and then retrieves the data. You cannot restore the deleted data. The other settings and consent are kept. If you do not select Yes, the retrieval is canceled and the stored data does not change.</p>
+  <div class="chapter-nav"><a href="screens.html">Previous: Main screens</a><a href="index.html">Contents</a></div>
+  <p class="updated">Last updated: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-use.html">Terms of Use</a> | <a href="../manual/index.html">Manual</a> | <a href="../support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>

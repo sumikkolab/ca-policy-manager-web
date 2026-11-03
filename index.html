@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Policy Manager | 条件付きアクセスの適用漏れをログとポリシーから確認 | Sumikko Lab</title>
+<meta name="description" content="サインインログとポリシー定義から条件付きアクセスの適用漏れを確認し、対応が必要な項目を示す読み取り専用の Windows アプリです。">
+<link rel="canonical" href="https://capolicymanager.sumikkolab.com/">
+<link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/">
+<link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/">
+<meta property="og:title" content="CA Policy Manager | 条件付きアクセスの適用漏れをログとポリシーから確認 | Sumikko Lab">
+<meta property="og:description" content="サインインログとポリシー定義から条件付きアクセスの適用漏れを確認し、対応が必要な項目を示す読み取り専用の Windows アプリです。">
+<meta property="og:url" content="https://capolicymanager.sumikkolab.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
+<meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="manual/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CA Policy Manager",
+  "description": "サインインログとポリシー定義から条件付きアクセスの適用漏れを確認し、対応が必要な項目を示す読み取り専用の Windows アプリです。",
+  "dateModified": "2026-11-03",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
+  "publisher": { "@type": "Organization", "name": "Sumikko Lab" }
+}
+</script>
+</head>
+<body>
+<div class="hero">
+  <h1>CA Policy Manager — ログとポリシーから条件付きアクセスの適用漏れを確認する読み取り専用アプリ</h1>
+  <p>サインインログとポリシー定義から条件付きアクセスの適用漏れを確認し、対応が必要な項目を示す読み取り専用の Windows アプリです。</p>
+  <div class="hero-buttons">
+    <a class="store-btn" href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store で入手</a>
+    <a class="manual-btn" href="manual/index.html">マニュアル</a>
+  </div>
+</div>
+<div class="container">
+  <div class="lang-toggle"><a href="en/index.html">English</a></div>
+  <div class="nav-links"><a href="index.html">製品情報</a><a href="manual/index.html">マニュアル</a><a href="privacy-policy.html">プライバシーポリシー</a><a href="terms-of-use.html">利用規約</a><a href="support.html">サポート</a></div>
+  <div class="why-section">
+    <h2>解決する課題</h2>
+    <p>条件付きアクセスのポリシーが増えると、どのサインインにどのポリシーが適用されたのか、どの条件にポリシーが適用されないのかを、管理センターの画面だけで把握することが難しくなります。</p>
+    <p>CA Policy Manager は、Microsoft Graph から読み取ったサインインログとポリシー定義を 1 つの画面にまとめます。次のことを確認できます。</p>
+    <ul>
+      <li>どの条件にポリシーが適用されていないか(適用ポリシーなしの条件)</li>
+      <li>現在のポリシーが、Microsoft Learn のテンプレートの推奨を満たしているか</li>
+      <li>サインインがブロックされた理由、または許可された理由</li>
+      <li>レポート専用ポリシーを追加すると、結果がどのように変わるか(有償版)</li>
+    </ul>
+  </div>
+
+  <h2>できること</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>適用漏れの確認</h3>
+      <ul>
+        <li>ホームに、対応が必要な項目、適用ポリシーなしの条件、ベースラインとの差を表示します。</li>
+        <li>適用ポリシーなしの条件は、ポリシーの設定から数えます。</li>
+        <li>ポリシーの記録が無いサインインの件数を表示し、調査で一覧を確認できます。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>推奨ポリシーとの比較</h3>
+      <ul>
+        <li>Microsoft Learn のテンプレートのカテゴリごとに、現在のポリシーが推奨を満たすかを点検します。</li>
+        <li>結果を「対応が必要」「取得できない設定を含むポリシー」「対象は一部のユーザーだけ」「満たしている」などに分けて表示します。</li>
+        <li>ユーザーの種類、デバイスの種類、OS、場所の観点で流れ図を確認できます。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>サインインの調査</h3>
+      <ul>
+        <li>期間、ユーザー、アプリ、結果でサインインを絞り込めます。</li>
+        <li>行を選択すると、ブロックされた理由または許可された理由を表示します。</li>
+        <li>ポリシーで使っているグループと、緊急アクセス アカウントの除外を点検できます。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>傾向の確認</h3>
+      <ul>
+        <li>サインイン数の変化を、成功、失敗、中断、未適用、その他の結果の別に表示します。</li>
+        <li>アプリの急増など、ベースラインとの差を示します。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>CAシミュレーション<span class="pro-badge">有償版</span></h3>
+      <ul>
+        <li>ユーザー、アプリ、場所、リスクなどの条件を指定して、適用されるポリシーと結果(アクセスブロック、MFA を求められる、ポリシー未適用でアクセス可など)を計算します。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>レポート専用ポリシーの評価<span class="pro-badge">有償版</span></h3>
+      <ul>
+        <li>レポート専用ポリシーを追加したときの結果の変化を、ポリシーの設定から計算して表示します。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>変更案の作成<span class="pro-badge">有償版</span></h3>
+      <ul>
+        <li>レポート専用ポリシーの JSON と手順書をテキストで作成します。</li>
+        <li>テナントへの適用は、管理者が管理センターで行います。</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>CSV・HTML のエクスポート<span class="pro-badge">有償版</span></h3>
+      <ul>
+        <li>調査の結果を CSV と HTML のレポートにエクスポートできます。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>対象者</h2>
+  <ul>
+    <li>自分の組織の Microsoft Entra テナントを管理する IT 管理者</li>
+    <li>条件付きアクセスのポリシーを変更する前に、現状と変更後の結果を確認したい担当者</li>
+  </ul>
+
+  <h2>画面イメージ</h2>
+  <figure>
+    <img src="manual/images/home.png" alt="ホーム画面。対応が必要な項目、適用ポリシーなしの条件、ベースラインとの差、サインインの結果を表示している" width="1264" height="952">
+    <figcaption>ホーム(デモの合成データ)</figcaption>
+  </figure>
+  <figure>
+    <img src="manual/images/current-state.png" alt="現状と点検の画面。推奨ポリシーとの比較の結果を、対応が必要などの区分で表示している" width="1264" height="952">
+    <figcaption>現状と点検(デモの合成データ)</figcaption>
+  </figure>
+
+  <h2>入手方法と動作環境</h2>
+  <ul>
+    <li>入手先: <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a></li>
+    <li>アプリは無料で入手できます。</li>
+    <li>有償版: Microsoft Store の買い切りのアドオンです。アプリの中の購入ボタンから購入します。</li>
+    <li>OS: Windows 10 バージョン 2004 以降、Windows 11</li>
+    <li>言語: 日本語、英語</li>
+    <li>ライセンス: Microsoft Entra ID P1 または P2</li>
+    <li>事前の準備: Microsoft Entra 管理センターでのアプリの登録(<a href="manual/app-registration.html">手順</a>)</li>
+    <li>ネットワーク: Microsoft のサインインと Microsoft Graph への接続が必要です。</li>
+  </ul>
+  <h3>始め方</h3>
+  <ol>
+    <li>Microsoft Store からインストールし、利用規約に同意します。</li>
+    <li>Microsoft Entra 管理センターで<a href="manual/app-registration.html">アプリを登録</a>します。</li>
+    <li><a href="manual/connection.html">接続設定</a>にテナント ID とクライアント ID を入力し、接続テストを実行します。</li>
+    <li>ホームで期間を選択し、「取得」を選択します(<a href="manual/getting-started.html">詳しい手順</a>)。</li>
+  </ol>
+
+  <h2>よくある質問</h2>
+  <h3>テナントのポリシーや設定は変更されますか?</h3>
+  <p>変更されません。CA Policy Manager は読み取り専用で、Microsoft Graph への要求は GET だけです。変更案はテキストでエクスポートし、適用は管理者が行います。</p>
+  <h3>取得したデータはどこに保存されますか?</h3>
+  <p>現在の Windows ユーザーのフォルダーにだけ保存します。保存先はこの PC の中だけで、発行元や第三者には送信しません。ユーザーの名前と所属、ポリシー定義、接続設定は暗号化します。サインインの記録、アプリの表示名、同意の記録は暗号化しません。詳しくは<a href="manual/data.html">データの保存と削除</a>をご確認ください。</p>
+  <h3>どのアクセス許可が必要ですか?</h3>
+  <p>必須のアクセス許可は AuditLog.Read.All、Policy.Read.All、User.Read.All です。任意のアクセス許可は Application.Read.All、GroupMember.Read.All です。すべて読み取り専用の委任されたアクセス許可です。</p>
+  <h3>結果は Microsoft の公式の評価ですか?</h3>
+  <p>公式の評価ではありません。本アプリの計算による推定であり、実際の判定と異なることがあります。ポリシーを変更する前に、検証用の環境またはレポート専用モードで確認してください。</p>
+  <h3>問い合わせ先はどこですか?</h3>
+  <p><a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a> までご連絡ください。</p>
+  <p class="updated">最終更新: 2026-11-03</p>
+  <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
+    <a href="privacy-policy.html">プライバシーポリシー</a> | <a href="terms-of-use.html">利用規約</a> | <a href="manual/index.html">マニュアル</a> | <a href="support.html">サポート</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
+  </div>
+</div>
+</body>
+</html>
