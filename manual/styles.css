@@ -41,4 +41,4 @@ figcaption { font-size: 0.8rem; color: #64748b; margin-top: 8px; }
 @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
 .feature-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
 .feature-card h3 { margin-top: 0; font-size: 0.95rem; }
-.feature-card li { font-size: 0.85rem; color: #475569; margin-bottom: 4px; }
+.feature-card p { font-size: 0.85rem; color: #475569; margin-bottom: 4px; }

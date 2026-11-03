@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CA Policy Manager | Find Conditional Access gaps from logs and policies | Sumikko Lab</title>
-<meta name="description" content="A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.">
+<title>CA Policy Manager | Find Conditional Access gaps | Sumikko Lab</title>
+<meta name="description" content="A read-only Windows app that shows which conditions and sign-ins no Conditional Access policy covers.">
 <link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/">
 <link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/">
 <link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/">
-<meta property="og:title" content="CA Policy Manager | Find Conditional Access gaps from logs and policies | Sumikko Lab">
-<meta property="og:description" content="A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.">
+<meta property="og:title" content="CA Policy Manager | Find Conditional Access gaps | Sumikko Lab">
+<meta property="og:description" content="A read-only Windows app that shows which conditions and sign-ins no Conditional Access policy covers.">
 <meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -23,8 +23,8 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "CA Policy Manager",
-  "description": "A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.",
-  "dateModified": "2026-11-03",
+  "description": "A read-only Windows app that shows which conditions and sign-ins no Conditional Access policy covers.",
+  "dateModified": "2026-11-04",
   "applicationCategory": "SecurityApplication",
   "operatingSystem": "Windows 10, Windows 11",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
@@ -34,8 +34,8 @@
 </head>
 <body>
 <div class="hero">
-  <h1>CA Policy Manager — A read-only app that finds Conditional Access gaps from logs and policies</h1>
-  <p>A read-only Windows app that finds Conditional Access coverage gaps from sign-in logs and policy definitions, and shows which items need action.</p>
+  <h1>CA Policy Manager<br>Find Conditional Access gaps in your sign-in logs</h1>
+  <p>The more policies you have, the harder it is to see where the gaps are. CA Policy Manager reads your sign-in logs and policies and shows you what is not covered. It does not change your tenant.</p>
   <div class="hero-buttons">
     <a class="store-btn" href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Get it from Microsoft Store</a>
     <a class="manual-btn" href="manual/index.html">Manual</a>
@@ -45,82 +45,44 @@
   <div class="lang-toggle"><a href="../index.html">日本語</a></div>
   <div class="nav-links"><a href="index.html">Product</a><a href="manual/index.html">Manual</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="support.html">Support</a></div>
   <div class="why-section">
-    <h2>The problem it solves</h2>
-    <p>As Conditional Access policies grow in number, it becomes hard to tell from the admin center alone which policies applied to a sign-in and which conditions no policy covers.</p>
-    <p>CA Policy Manager brings the sign-in logs and policy definitions read from Microsoft Graph into one place. You can check:</p>
-    <ul>
-      <li>Which conditions have no policy applied</li>
-      <li>Whether your current policies meet the recommendations in the Microsoft Learn templates</li>
-      <li>Why a sign-in was blocked or allowed</li>
-      <li>How the result changes when you add report-only policies (paid edition)</li>
-    </ul>
+    <h2>Do your policies cover guest sign-ins?</h2>
+    <p>You add a policy to require MFA for administrator roles, then an exception for one department, and the list keeps growing. Then you check and find that no policy applied to guest sign-ins. Gaps like that are hard to spot by opening policies one at a time.</p>
+    <p>CA Policy Manager is a Windows app for IT administrators who manage their own organization's Microsoft Entra tenant. It reads sign-in logs and policy definitions from Microsoft Graph and shows which conditions and sign-ins no policy covers.</p>
   </div>
 
-  <h2>What it does</h2>
+  <h2>What you can see</h2>
+  <h3>Where no policy applies</h3>
+  <p>Home shows three numbers: items that need action, conditions with no policy applied, and deviations from the baseline. Conditions with no policy applied include combinations that no one has signed in with yet.</p>
+  <p>For sign-ins that did happen, Home shows how many have no policy record. Select the count to open the Investigate tab and review them one at a time.</p>
+  <h3>How your policies compare with the recommendations</h3>
+  <p>The app checks your policies against the recommendations in the Microsoft Learn templates, category by category. If a policy you meant to turn on is still in report-only mode, or a policy covers only some users, the app shows the cause and where to check.</p>
+  <p>The app shows results in a flow diagram. You can switch the view between user type, device type, OS, and location. For policies with settings that Microsoft Graph cannot return, the app directs you to the admin center.</p>
+  <h3>Why a sign-in was allowed or blocked</h3>
+  <p>This helps when someone reports they cannot sign in, or when you see access you did not expect. Filter by period, user, app, and result, then select a row to see the reason.</p>
+  <p>You can also check the groups your policies use. Empty groups, groups that may have been deleted, and policies that do not exclude your emergency access accounts all appear under Policy check on the Investigate tab.</p>
+  <h3>Sign-in trends</h3>
+  <p>See how sign-in counts change, split into success, failure, interrupted, not applied, and other result. The app compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation.</p>
+
+  <h2>Check the result before you change anything</h2>
+  <p>These features are in the paid edition.</p>
   <div class="features">
     <div class="feature-card">
-      <h3>Coverage gaps</h3>
-      <ul>
-        <li>Home shows the items that need action, the conditions with no policy applied, and the deviations from the baseline.</li>
-        <li>Conditions with no policy applied are counted from the policy settings.</li>
-        <li>Home shows the number of sign-ins with no policy record, and the Investigate tab lists them.</li>
-      </ul>
-    </div>
-    <div class="feature-card">
-      <h3>Comparison with recommended policies</h3>
-      <ul>
-        <li>Checks whether your current policies meet the recommendations, for each template category in Microsoft Learn.</li>
-        <li>Separates results into groups such as Needs action, Policy contains settings this app cannot retrieve, Applies to only some users, and recommendations already met.</li>
-        <li>Shows a flow diagram by user type, device type, OS, and location.</li>
-      </ul>
-    </div>
-    <div class="feature-card">
-      <h3>Sign-in investigation</h3>
-      <ul>
-        <li>Filters sign-ins by period, user, app, and result.</li>
-        <li>Select a row to see why the sign-in was blocked or allowed.</li>
-        <li>Checks the groups the policies use and the exclusion of emergency access accounts.</li>
-      </ul>
-    </div>
-    <div class="feature-card">
-      <h3>Trends</h3>
-      <ul>
-        <li>Shows changes in sign-in counts by success, failure, interrupted, not applied, and other result.</li>
-        <li>Shows deviations from the baseline, such as a sudden increase for an app.</li>
-      </ul>
-    </div>
-    <div class="feature-card">
       <h3>CA simulation<span class="pro-badge">Paid edition</span></h3>
-      <ul>
-        <li>Calculates the policies that apply and the result (such as Access blocked, MFA required, or No policy applied: access allowed) for conditions you specify, such as user, app, location, and risk.</li>
-      </ul>
+      <p>Specify conditions such as user, app, location, and risk to see which policies apply and the result, such as Access blocked, MFA required, or No policy applied: access allowed. You do not need to wait for a real sign-in.</p>
     </div>
     <div class="feature-card">
       <h3>Report-only policy evaluation<span class="pro-badge">Paid edition</span></h3>
-      <ul>
-        <li>Calculates from the policy settings how the result changes when report-only policies are added.</li>
-      </ul>
+      <p>See how results change before you turn a report-only policy on. The app also shows how many fewer conditions would have no policy applied.</p>
     </div>
     <div class="feature-card">
       <h3>Change proposals<span class="pro-badge">Paid edition</span></h3>
-      <ul>
-        <li>Creates a report-only policy JSON and a set of steps as text.</li>
-        <li>An administrator applies the change in the admin center.</li>
-      </ul>
+      <p>Create a report-only policy JSON and a set of steps as text. An administrator applies the change in the admin center.</p>
     </div>
     <div class="feature-card">
       <h3>CSV and HTML export<span class="pro-badge">Paid edition</span></h3>
-      <ul>
-        <li>Exports investigation results to CSV and to an HTML report.</li>
-      </ul>
+      <p>Export investigation results to CSV and to an HTML report.</p>
     </div>
   </div>
-
-  <h2>Who it is for</h2>
-  <ul>
-    <li>IT administrators who manage their own organization's Microsoft Entra tenant</li>
-    <li>Staff who want to review the current state and the expected result before changing Conditional Access policies</li>
-  </ul>
 
   <h2>Screenshots</h2>
   <figure>
@@ -135,7 +97,7 @@
   <h2>Get the app and system requirements</h2>
   <ul>
     <li>Get it from: <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a></li>
-    <li>The app is free to get.</li>
+    <li>The app is free to download.</li>
     <li>Paid edition: a one-time purchase add-on in Microsoft Store. Buy it from the purchase button in the app.</li>
     <li>OS: Windows 10 version 2004 or later, Windows 11</li>
     <li>Languages: Japanese, English</li>
@@ -152,17 +114,17 @@
   </ol>
 
   <h2>Frequently asked questions</h2>
-  <h3>Does the app change my tenant's policies or settings?</h3>
-  <p>No. CA Policy Manager is read-only, and its requests to Microsoft Graph are GET only. Change proposals are exported as text, and an administrator applies them.</p>
-  <h3>Where is the retrieved data stored?</h3>
-  <p>Only on this PC, in the current Windows user's folder. It is not sent to the publisher or to any third party. User names and group membership, policy definitions, and connection settings are encrypted. Sign-in records, application display names, and the consent record are not encrypted. See <a href="manual/data.html">Data storage and deletion</a> for details.</p>
-  <h3>Which permissions does the app need?</h3>
-  <p>The required permissions are AuditLog.Read.All, Policy.Read.All, and User.Read.All. The optional permissions are Application.Read.All and GroupMember.Read.All. All are read-only delegated permissions.</p>
-  <h3>Are the results an official Microsoft evaluation?</h3>
-  <p>No. They are estimates from the app's own computation and may differ from Microsoft's actual decisions. Before changing a policy, verify in a test environment or in report-only mode.</p>
-  <h3>How do I contact support?</h3>
-  <p>Send an email to <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>.</p>
-  <p class="updated">Last updated: 2026-11-03</p>
+  <h3>Will the app change anything in my tenant?</h3>
+  <p>No. CA Policy Manager uses read-only permissions. Change proposals in the paid edition are text only, and an administrator decides whether to apply them.</p>
+  <h3>Where is the data stored?</h3>
+  <p>On this PC, in the current Windows user's folder. The app does not send it to the publisher or to any third party. User names and group membership, policy definitions, and connection settings are encrypted. Sign-in records, application display names, and the consent record are not. See <a href="manual/data.html">Data storage and deletion</a> for details.</p>
+  <h3>Which permissions does it need?</h3>
+  <p>AuditLog.Read.All, Policy.Read.All, and User.Read.All are required. Application.Read.All and GroupMember.Read.All are optional; the app uses them to show app names and group members. All five are read-only delegated permissions.</p>
+  <h3>Are non-interactive sign-ins included?</h3>
+  <p>No. The app retrieves interactive sign-ins only.</p>
+  <h3>Do the results match Microsoft's decisions?</h3>
+  <p>Not always. They are estimates from the app's own computation, not an official Microsoft evaluation. Before changing a policy, verify in a test environment or in report-only mode.</p>
+  <p class="updated">Last updated: 2026-11-04</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a> | <a href="manual/index.html">Manual</a> | <a href="support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>

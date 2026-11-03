@@ -28,7 +28,7 @@
   <h1>Main screens</h1>
   <p class="subtitle">All images use synthetic demo data</p>
   <h2>Home</h2>
-  <p>Home shows the data retrieval status, today's status, and the sign-in search. The three numbers in today's status are:</p>
+  <p>Start here. Home shows the data retrieval status, today's status, and the sign-in search. The three numbers in today's status are:</p>
   <ul>
     <li>Needs action: the number of recommended policy items that are not met</li>
     <li>Conditions with no policy applied: the number of conditions counted from the policy settings, not a log count</li>
@@ -38,16 +38,16 @@
   <p>If there are old-format entries that do not record the applied policies, the data retrieval status shows Old-format entries: N. These entries are not included in the viewpoint counts.</p>
   <figure><img src="../../manual/images/home-en.png" alt="The Home screen" width="1264" height="952"><figcaption>Home</figcaption></figure>
   <h2>Current state and checks</h2>
-  <p>This screen checks whether your current policies meet the recommended policies of the selected category. You can switch between Current settings and If the recommendation is applied. For policies with settings that Microsoft Graph cannot return, the app directs you to the admin center.</p>
+  <p>Compare your policies with the recommendations here. Select a category, and the app checks whether your current policies meet the recommended policies. You can switch between Current settings and If the recommendation is applied. For policies with settings that Microsoft Graph cannot return, the app directs you to the admin center.</p>
   <figure><img src="../../manual/images/current-state-en.png" alt="The Current state and checks screen" width="1264" height="952"><figcaption>Current state and checks</figcaption></figure>
   <h2>Investigate</h2>
-  <p>This screen lists sign-ins, which you can filter by period, user, app, and result. Select a row to see why the sign-in was blocked or allowed. A sign-in with no result value is shown as No result recorded, and a sign-in with a value the app does not recognize is shown as Other result. The policy check shows the policy configuration. In the paid edition, you can export the listed sign-ins to CSV and HTML.</p>
+  <p>Use this screen to look into individual sign-ins. Filter the list by period, user, app, and result. Select a row to see why the sign-in was blocked or allowed. A sign-in with no result value is shown as No result recorded, and a sign-in with a value the app does not recognize is shown as Other result. The policy check shows the policy configuration. In the paid edition, you can export the listed sign-ins to CSV and HTML.</p>
   <figure><img src="../../manual/images/investigation-en.png" alt="The Investigate screen with the sign-in list and filters" width="1264" height="952"><figcaption>Investigate</figcaption></figure>
   <h2>CA simulation<span class="pro-badge">Paid edition</span></h2>
-  <p>Specify conditions such as user, app, client, device, location, and risk to see the result (such as Access blocked, MFA required, or No policy applied: access allowed) and the evaluation flow. An IP address you enter is used only on this screen and is never saved or exported. The result is not an official Microsoft evaluation.</p>
+  <p>Check a result without waiting for a real sign-in. Specify conditions such as user, app, client, device, location, and risk to see the result (such as Access blocked, MFA required, or No policy applied: access allowed) and the evaluation flow. An IP address you enter is used only on this screen and is never saved or exported. The result is not an official Microsoft evaluation.</p>
   <figure><img src="../../manual/images/simulation-en.png" alt="The CA simulation screen with the result and evaluation flow for the specified conditions" width="1264" height="952"><figcaption>CA simulation</figcaption></figure>
   <h2>Report-only policy evaluation<span class="pro-badge">Paid edition</span></h2>
-  <p>This screen calculates the result of adding the selected report-only policies to the existing enabled policies. It uses the policy settings, not the sign-in logs. You can switch between Current and After adding. It also shows how many combinations of conditions with no policy applied the added policies remove. Tenant settings are not changed.</p>
+  <p>See how results change before you turn a report-only policy on. This screen calculates the result of adding the selected report-only policies to the existing enabled policies. It uses the policy settings, not the sign-in logs. You can switch between Current and After adding. It also shows how many fewer conditions would have no policy applied. Tenant settings are not changed.</p>
   <figure><img src="../../manual/images/report-only-evaluation-en.png" alt="The Report-only policy evaluation screen with the change in results after adding policies" width="1264" height="952"><figcaption>Report-only policy evaluation</figcaption></figure>
   <h2>Trends</h2>
   <p>Select a time range to see the change in sign-in counts and the breakdown (success, failure, interrupted, not applied, and other result). Other result means no result value or a value the app does not recognize. The app compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline.</p>
@@ -56,7 +56,7 @@
   <p>This screen covers the time display, language, user display (name, user name, or anonymous), connection settings, emergency access accounts, and deleting stored data. A language change takes effect the next time the app starts.</p>
   <figure><img src="../../manual/images/settings-en.png" alt="The Settings screen" width="1264" height="952"><figcaption>Settings</figcaption></figure>
   <div class="chapter-nav"><a href="connection.html">Previous: Connection settings</a><a href="data.html">Next: Data storage and deletion</a></div>
-  <p class="updated">Last updated: 2026-11-03</p>
+  <p class="updated">Last updated: 2026-11-04</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-use.html">Terms of Use</a> | <a href="../manual/index.html">Manual</a> | <a href="../support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>
