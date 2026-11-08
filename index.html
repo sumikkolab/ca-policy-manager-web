@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CA Policy Manager | 条件付きアクセスの適用漏れを見つける | Sumikko Lab</title>
-<meta name="description" content="条件付きアクセスのポリシーが適用されていない条件とサインインを確認する、読み取り専用の Windows アプリです。">
+<title>適用されないサインインとゲストの抜けを調べる | CA Policy Manager</title>
+<meta name="description" content="条件付きアクセスのポリシーを増やすうちに、ゲストのサインインなど、どのポリシーも適用されていない箇所が分からなくなっていませんか。CA Policy Manager は、適用されないサインイン、ブロックされた理由、レポート専用のままのポリシーをサインインログから示す、読み取り専用の Windows アプリです。">
 <link rel="canonical" href="https://capolicymanager.sumikkolab.com/">
 <link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/">
 <link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/">
-<meta property="og:title" content="CA Policy Manager | 条件付きアクセスの適用漏れを見つける | Sumikko Lab">
-<meta property="og:description" content="条件付きアクセスのポリシーが適用されていない条件とサインインを確認する、読み取り専用の Windows アプリです。">
+<meta property="og:title" content="適用されないサインインとゲストの抜けを調べる | CA Policy Manager">
+<meta property="og:description" content="条件付きアクセスのポリシーを増やすうちに、ゲストのサインインなど、どのポリシーも適用されていない箇所が分からなくなっていませんか。CA Policy Manager は、適用されないサインイン、ブロックされた理由、レポート専用のままのポリシーをサインインログから示す、読み取り専用の Windows アプリです。">
 <meta property="og:url" content="https://capolicymanager.sumikkolab.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -33,8 +33,20 @@
     {
       "@type": "SoftwareApplication",
       "name": "CA Policy Manager",
-      "description": "条件付きアクセスのポリシーが適用されていない条件とサインインを確認する、読み取り専用の Windows アプリです。",
-      "dateModified": "2026-11-04",
+      "description": "条件付きアクセスのポリシーが増えて、どのポリシーも適用されていないサインインやゲストの抜けが分からない IT 管理者のための、読み取り専用の Windows アプリです。サインインログとポリシーを読み取り、適用されない条件とサインイン、許可・ブロックの理由、レポート専用のままのポリシーを示します。",
+      "featureList": [
+        "どの条件にも適用されない箇所が分からない → 適用ポリシーなしの条件を一覧",
+        "サインインにポリシーが当たっているか分からない → ポリシーの記録が無いサインインの件数と一覧",
+        "Microsoft の推奨にポリシーが届いているか分からない → テンプレートとの差を点検",
+        "ポリシーがレポート専用のまま・対象が一部に限られている → 原因と確認する箇所を表示",
+        "「サインインできない」の原因が分からない → 許可・ブロックの理由を表示",
+        "ポリシーで使うグループが空・削除済み、緊急アクセス アカウントを除外していない → ポリシーの点検",
+        "サインイン数の急増・失敗の割合・時間帯の偏りに気づきたい → ベースラインとの比較",
+        "実サインインを待たずに結果を見たい → CAシミュレーション(有償版)",
+        "レポート専用ポリシーを有効にしたときの影響を知りたい → レポート専用ポリシーの評価(有償版)",
+        "変更案や調査結果を共有したい → 変更案の作成、CSV・HTML のエクスポート(有償版)"
+      ],
+      "dateModified": "2026-11-09",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Windows 10, Windows 11",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
@@ -47,7 +59,7 @@
 </head>
 <body>
 <div class="hero">
-  <h1>CA Policy Manager<br>条件付きアクセスの適用漏れを、サインインログから見つける</h1>
+  <h1>CA Policy Manager<br>どのポリシーも適用されないサインインやブロックの理由を、サインインログから調べる</h1>
   <p>ポリシーが増えるほど、どこに適用漏れがあるのか分かりにくくなります。テナントのサインインログとポリシーを読み取って、抜けている箇所を示します。テナントの設定は変更しません。</p>
   <div class="hero-buttons">
     <a class="store-btn" href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store で入手</a>
@@ -62,6 +74,25 @@
     <p>管理者ロールに MFA を求めるポリシーを作り、部署ごとの例外を追加するうちに、ポリシーは増えていきます。ところが確認してみると、ゲストのサインインにはどのポリシーも適用されていなかった、ということがあります。こうした抜けは、ポリシーを 1 つずつ開いて読むだけでは見つけにくいものです。</p>
     <p>CA Policy Manager は、自分の組織の Microsoft Entra テナントを管理する IT 管理者のための Windows アプリです。サインインログとポリシーの定義を Microsoft Graph から読み取り、どの条件とどのサインインにポリシーが適用されていないかを示します。</p>
   </div>
+
+  <h2>こんな課題を解決します</h2>
+  <h3>ポリシーを足し続けて、どの条件にもポリシーが適用されない箇所が分からないとき</h3>
+  <p>ホームに「適用ポリシーなしの条件」の数が表示されます。まだ誰もサインインしていない組み合わせも含むので、実際のサインインが起きる前に抜けを洗い出せます。</p>
+  <h3>ゲストユーザーのサインインに条件付きアクセスが効いているか確認するには</h3>
+  <p>実際に発生したサインインのうち、ポリシーの記録が無いものの件数がホームに表示されます。選択すると調査のタブが開き、期間、ユーザー、アプリ、結果で絞り込みながら 1 件ずつ確認できます。</p>
+  <h3>Microsoft の推奨テンプレートに沿ってポリシーが届いているか、点検するには</h3>
+  <p>Microsoft Learn のテンプレートのカテゴリごとに、今のポリシーが推奨を満たしているかを点検し、管理者ロールの MFA など、推奨との差を示します。結果は流れ図で、ユーザーの種類、デバイスの種類、OS、場所の観点で切り替えて見られます。</p>
+  <h3>有効にしたつもりのポリシーが、レポート専用のままではないか確認したいとき</h3>
+  <p>レポート専用のままだった、対象が一部のユーザーに限られていた、といった場合は、原因と確認する箇所を示します。Microsoft Graph で取得できない設定を含むポリシーは、管理センターでの確認を案内します。</p>
+  <h3>「サインインできない」と問い合わせを受けた。どのポリシーでブロックされたか調べるには</h3>
+  <p>調査のタブで期間、ユーザー、アプリ、結果を絞り込み、該当の行を選択すると、サインインが許可された理由、ブロックされた理由を表示します。</p>
+  <h3>想定外のアクセスが、なぜ許可されたのか調べたいとき</h3>
+  <p>同じく調査のタブで、想定外のアクセスの行を選択すると、許可された理由を確認できます。</p>
+  <h3>ポリシーで使うグループが空ではないか、緊急アクセス アカウントを除外しているか確認するには</h3>
+  <p>調査の画面の「ポリシーの点検」で、メンバーがいないグループ、削除された可能性のあるグループ、緊急アクセス アカウントを除外していないポリシーを確認できます。</p>
+  <h3>サインイン数の急増や失敗の増加、時間帯の偏りに気づきたいとき</h3>
+  <p>サインイン数の変化を、成功、失敗、中断、未適用、その他の結果に分けて表示します。アプリの急増、失敗の割合、時間帯の偏りはベースラインと比較し、差があれば示します。</p>
+  <p>制限: 取得するのは対話型のサインインだけで、非対話型は対象外です。期間は最大 30 日です。結果はアプリの計算による推定で、Microsoft の公式の評価と一致しないことがあります。Microsoft Entra ID P1 または P2 が必要です。テナントの設定は変更しません。実サインインを待たずに結果を見る、レポート専用ポリシーを有効にする前に影響を確認する、といった用途には、有償版の機能を<a href="#paid-edition">下の節</a>に載せています。</p>
 
   <h2>何が分かるか</h2>
   <ul>
@@ -82,7 +113,7 @@
   <h3>サインインの傾向</h3>
   <p>サインイン数の変化を、成功、失敗、中断、未適用、その他の結果に分けて表示します。アプリの急増、失敗の割合、時間帯の偏りはベースラインと比較し、差があれば示します。</p>
 
-  <h2>変更の前に結果を確認する</h2>
+  <h2 id="paid-edition">実サインインを待たずに、変更の影響を事前に確認したいとき</h2>
   <p>ここからは有償版の機能です。</p>
   <div class="features">
     <div class="feature-card">
@@ -91,7 +122,7 @@
     </div>
     <div class="feature-card">
       <h3>レポート専用ポリシーの評価<span class="pro-badge">有償版</span></h3>
-      <p>レポート専用ポリシーを有効にする前に、結果の変化を確認できます。適用ポリシーなしの条件がいくつ減るかも表示します。</p>
+      <p>レポート専用のポリシーを有効にしたら何が変わるかを、有効にする前に確認できます。適用ポリシーなしの条件がいくつ減るかも表示します。</p>
     </div>
     <div class="feature-card">
       <h3>変更案の作成<span class="pro-badge">有償版</span></h3>
@@ -143,7 +174,7 @@
   <p>対象外です。取得するのは対話型のサインインだけです。</p>
   <h3>結果は Microsoft の判定と一致しますか?</h3>
   <p>一致するとは限りません。アプリの計算による推定で、Microsoft の公式の評価ではないためです。ポリシーを変更する前に、検証用の環境またはレポート専用モードで確認してください。</p>
-  <p class="updated">最終更新: 2026-11-04</p>
+  <p class="updated">最終更新: 2026-11-09</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="privacy-policy.html">プライバシーポリシー</a> | <a href="terms-of-use.html">利用規約</a> | <a href="manual/index.html">マニュアル</a> | <a href="support.html">サポート</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>
