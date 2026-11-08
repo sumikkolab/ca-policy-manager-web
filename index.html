@@ -16,19 +16,32 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="CA Policy Manager - Sumikko Lab">
 <meta property="og:image" content="https://capolicymanager.sumikkolab.com/manual/images/home.png">
+<meta property="og:image:alt" content="CA Policy Manager のホーム画面。デモデータで、適用ポリシーなしの条件の数とサインインの結果の内訳を表示している">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="manual/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "CA Policy Manager",
-  "description": "条件付きアクセスのポリシーが適用されていない条件とサインインを確認する、読み取り専用の Windows アプリです。",
-  "dateModified": "2026-11-04",
-  "applicationCategory": "SecurityApplication",
-  "operatingSystem": "Windows 10, Windows 11",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
-  "publisher": { "@type": "Organization", "name": "Sumikko Lab" }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sumikkolab.com/#organization",
+      "name": "Sumikko Lab",
+      "url": "https://sumikkolab.com/",
+      "email": "support@sumikkolab.com"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "CA Policy Manager",
+      "description": "条件付きアクセスのポリシーが適用されていない条件とサインインを確認する、読み取り専用の Windows アプリです。",
+      "dateModified": "2026-11-04",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Windows 10, Windows 11",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
+      "author": { "@id": "https://sumikkolab.com/#organization" },
+      "publisher": { "@id": "https://sumikkolab.com/#organization" }
+    }
+  ]
 }
 </script>
 </head>
