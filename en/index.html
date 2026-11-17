@@ -37,16 +37,17 @@
       "featureList": [
         "Cannot tell which conditions no policy covers → lists conditions with no policy applied",
         "Cannot tell whether sign-ins are covered → count and list of sign-ins with no policy record",
-        "Cannot tell whether policies reach the Microsoft recommendations → checks the gap against the templates",
+        "Cannot tell whether Conditional Access covers guests → count of guest sign-ins, and which of the six guest and external user types are not covered",
+        "Cannot tell whether policies reach the Microsoft recommendations → checks the gap against 16 of the 21 templates",
         "Policy still in report-only mode or limited to some users → shows the cause and where to check",
-        "A user says they cannot sign in → shows why a sign-in was allowed or blocked",
-        "Groups used by policies are empty or deleted, or emergency access accounts are not excluded → Policy check",
+        "A user says they cannot sign in → shows why a sign-in was allowed or blocked, and whether Conditional Access denied it or authentication or consent failed",
+        "Groups used by policies are empty or deleted, or emergency access accounts are not excluded → Policy check (also covers overlapping excluded groups and Defender for Cloud Apps integration)",
         "Want to notice sudden sign-in increases, failure rates, and time-of-day patterns → comparison with the baseline",
         "Want results without waiting for real sign-ins → CA simulation (paid edition)",
         "Want to know the impact of turning on a report-only policy → Report-only policy evaluation (paid edition)",
         "Want to share proposals and findings → Change proposals, CSV and HTML export (paid edition)"
       ],
-      "dateModified": "2026-11-09",
+      "dateModified": "2026-11-17",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Windows 10, Windows 11",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
@@ -77,22 +78,31 @@
 
   <h2>Problems this solves</h2>
   <h3>How do I find the conditions no Conditional Access policy applies to?</h3>
-  <p>Home shows the number of conditions with no policy applied. The count includes combinations that no one has signed in with yet, so you can find gaps before real sign-ins hit them.</p>
+  <p>Home shows the number of conditions with no policy applied. The app splits combinations of conditions (user, app, location, and so on) into regions based on your enabled policies, and counts the regions that no policy applies to. Disabled policies are not counted. The count includes combinations that no one has signed in with yet, so you can find gaps before real sign-ins hit them. If you switch to After adding in the paid edition's Report-only policy evaluation, the number on Home also shows the value after adding.</p>
   <h3>How can I check whether guest users are covered by Conditional Access?</h3>
-  <p>For sign-ins that actually happened, Home shows how many have no policy record. Select the count to open the Investigate tab, where you can filter by period, user, app, and result and review them one at a time.</p>
+  <p>In the sign-in search on Home, the Guests viewpoint shows how many guest sign-ins there are. Select it to open the Investigate tab, where you can filter by period, user, app, and result and review them one at a time.</p>
+  <p>To check from the policy side, use Current state and checks. In the Zero Trust or Remote work category, the check for the recommendation "Require multifactor authentication for guest access" names which of the six guest and external user types your enabled policies do not cover: local guests (internal guest users), B2B collaboration guest users, B2B collaboration member users, B2B direct connect users, other external users, and service provider users.</p>
   <h3>How do I check that my policies follow the Microsoft recommended templates?</h3>
-  <p>The app checks your policies against the Microsoft Learn templates category by category and shows where they differ from the recommendations, such as MFA for administrator roles. A flow diagram lets you switch the view between user type, device type, OS, and location.</p>
+  <p>The app assesses 16 of the 21 Conditional Access policy templates on Microsoft Learn and shows where your policies differ from the recommendations, such as MFA for administrator roles. The other five templates, including the three AI Agents templates, are shown as not assessed. You can switch between six categories: Secure foundation, Zero Trust, Remote work, Protect administrator, Emerging threats, and AI Agents.</p>
+  <p>Needs action on Home counts only the eight items of the default category, Secure foundation. A flow diagram lets you switch the view between user type, device type, OS, and location. For some items, the app also shows the kind of cause. There are six kinds: a missing permission; group members cannot be retrieved because GroupMember.Read.All is not consented to; the policy has settings this app cannot read; a setting the recommendation requires does not exist in the tenant; not identified; and a temporary failure.</p>
   <h3>How do I find a policy that is still in report-only mode?</h3>
   <p>If a policy you meant to turn on is still in report-only mode, or covers only some users, the app shows the cause and where to check. For policies with settings that Microsoft Graph cannot return, it directs you to the admin center.</p>
   <h3>A user says they cannot sign in. How do I see why they were blocked?</h3>
-  <p>On the Investigate tab, filter by period, user, app, and result, then select the row. The app shows why the sign-in was allowed or blocked.</p>
+  <p>On the Investigate tab, filter by period, user, app, and result, then select the row. The app shows why the sign-in was allowed or blocked. The sign-in details start with a conclusion that tells apart two cases: Conditional Access may have denied the sign-in, or Conditional Access succeeded but authentication or consent failed. For a failed or interrupted sign-in, select Show the cause to see the policy that blocked it as a flow diagram in a separate window.</p>
   <h3>How do I find out why an unexpected sign-in was allowed?</h3>
   <p>On the same Investigate tab, select the row for the unexpected access to see the reason it was allowed.</p>
   <h3>How do I find policies that use empty groups or do not exclude emergency access accounts?</h3>
-  <p>Policy check on the Investigate tab lists empty groups, groups that may have been deleted, and policies that do not exclude your emergency access accounts.</p>
+  <p>Policy check on the Investigate tab covers the following:</p>
+  <ul>
+    <li>Groups used by policies: groups marked Not found (it may have been deleted) or No members appear first. Showing members requires consent to the optional permission GroupMember.Read.All.</li>
+    <li>Emergency access exclusion: if you specify your emergency access accounts on the Settings screen, the app shows how many policies do not exclude them. Exclusion through excluded groups is also taken into account. If you have not specified them, the check shows Not checked.</li>
+    <li>Overlap of excluded groups: the number of excluded groups that overlap</li>
+    <li>Defender for Cloud Apps (MDCA) integration: the number of related policies</li>
+  </ul>
   <h3>How do I notice sudden sign-in spikes, rising failure rates, or unusual hours?</h3>
-  <p>The app splits sign-in counts into success, failure, interrupted, not applied, and other result. It compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation.</p>
+  <p>The app splits sign-in counts into success, failure, interrupted, not applied, and other result. It compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation. The last interval of the selected period is treated as now, and the average of the earlier intervals is the baseline. Time-of-day patterns are checked only when the selected period is 7 days or longer.</p>
   <p>Limits: the app retrieves interactive sign-ins only; non-interactive sign-ins are not included. The period is 30 days at most. Results are estimates from the app's own computation and may not match Microsoft's official evaluation. Microsoft Entra ID P1 or P2 is required. The app never changes your tenant settings. To see results without waiting for real sign-ins, or to preview the impact of a report-only policy, see the <a href="#paid-edition">paid-edition features below</a>.</p>
+  <p>What the impact preview covers: the paid edition's Report-only policy evaluation shows how results change, for each combination of conditions, when you add report-only policies to your existing enabled policies. It does not show the impact on individual users, or the impact of editing a policy that is already enabled.</p>
 
   <h2>What you can see</h2>
   <ul>
@@ -104,21 +114,41 @@
   <h3>Where no policy applies</h3>
   <p>Home shows three numbers: items that need action, conditions with no policy applied, and deviations from the baseline. Conditions with no policy applied include combinations that no one has signed in with yet.</p>
   <p>For sign-ins that did happen, Home shows how many have no policy record. Select the count to open the Investigate tab and review them one at a time.</p>
+  <figure>
+    <img src="../manual/images/home-en.png" alt="The Home screen showing items that need action, conditions with no policy applied, the deviation from the baseline, and sign-in results" width="1264" height="952">
+    <figcaption>Home (synthetic demo data)</figcaption>
+  </figure>
   <h3>How your policies compare with the recommendations</h3>
   <p>The app checks your policies against the recommendations in the Microsoft Learn templates, category by category. If a policy you meant to turn on is still in report-only mode, or a policy covers only some users, the app shows the cause and where to check.</p>
   <p>The app shows results in a flow diagram. You can switch the view between user type, device type, OS, and location. For policies with settings that Microsoft Graph cannot return, the app directs you to the admin center.</p>
+  <figure>
+    <img src="../manual/images/current-state-en.png" alt="The Current state and checks screen showing the comparison with recommended policies by category" width="1264" height="952" loading="lazy">
+    <figcaption>Current state and checks (synthetic demo data)</figcaption>
+  </figure>
   <h3>Why a sign-in was allowed or blocked</h3>
   <p>This helps when someone reports they cannot sign in, or when you see access you did not expect. Filter by period, user, app, and result, then select a row to see the reason.</p>
-  <p>You can also check the groups your policies use. Empty groups, groups that may have been deleted, and policies that do not exclude your emergency access accounts all appear under Policy check on the Investigate tab.</p>
+  <figure>
+    <img src="../manual/images/investigation-en.png" alt="The Investigate screen with the sign-in list and filters" width="1264" height="952" loading="lazy">
+    <figcaption>Investigate (synthetic demo data)</figcaption>
+  </figure>
+  <p>You can also check the groups your policies use. Empty groups, groups that may have been deleted, and policies that do not exclude your emergency access accounts all appear under Policy check on the Investigate tab. You specify your emergency access accounts on the Settings screen.</p>
+  <figure>
+    <img src="../manual/images/settings-en.png" alt="The Settings screen, including where you specify emergency access accounts" width="1264" height="952" loading="lazy">
+    <figcaption>Settings (synthetic demo data)</figcaption>
+  </figure>
   <h3>Sign-in trends</h3>
   <p>See how sign-in counts change, split into success, failure, interrupted, not applied, and other result. The app compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation.</p>
+  <figure>
+    <img src="../manual/images/trends-en.png" alt="The Trends screen with the deviations from the baseline and the change in sign-in counts" width="1264" height="952" loading="lazy">
+    <figcaption>Trends (synthetic demo data)</figcaption>
+  </figure>
 
   <h2 id="paid-edition">Preview the impact of a change without waiting for real sign-ins</h2>
   <p>These features are in the paid edition.</p>
   <div class="features">
     <div class="feature-card">
       <h3>CA simulation<span class="pro-badge">Paid edition</span></h3>
-      <p>Specify conditions such as user, app, location, and risk to see which policies apply and the result, such as Access blocked, MFA required, or No policy applied: access allowed. You do not need to wait for a real sign-in.</p>
+      <p>Specify conditions such as user, app, location, and risk to see which policies apply and the result, such as Access blocked, MFA required, or No policy applied: access allowed. You do not need to wait for a real sign-in. As the user type, you can choose a user in your organization or one of the six guest and external user types.</p>
     </div>
     <div class="feature-card">
       <h3>Report-only policy evaluation<span class="pro-badge">Paid edition</span></h3>
@@ -133,15 +163,14 @@
       <p>Export investigation results to CSV and to an HTML report.</p>
     </div>
   </div>
-
-  <h2>Screenshots</h2>
+  <h3>What the exports contain</h3>
+  <ul>
+    <li>Audit report: counts for seven viewpoints, such as the total, guest user access, and access no CA policy applied to; the top three allow and deny reasons; and tables of the top 20 users, apps, and policies.</li>
+    <li>Audit report CSV: the same counts and tables as the audit report, plus every sign-in that matches one of four viewpoints (sign-ins with no policy record, report-only mode, guest users, and allowed from non-compliant devices). Each row has seven columns: date and time, app, user, IP address, user type, result, and reason. When User display in Settings is Anonymous, users appear in anonymized form and IP addresses as rounded ranges.</li>
+  </ul>
   <figure>
-    <img src="../manual/images/home-en.png" alt="The Home screen showing items that need action, conditions with no policy applied, the deviation from the baseline, and sign-in results" width="1264" height="952">
-    <figcaption>Home (synthetic demo data)</figcaption>
-  </figure>
-  <figure>
-    <img src="../manual/images/current-state-en.png" alt="The Current state and checks screen showing the comparison with recommended policies by category" width="1264" height="952">
-    <figcaption>Current state and checks (synthetic demo data)</figcaption>
+    <img src="../manual/images/report-only-evaluation-en.png" alt="The Report-only policy evaluation screen with the change in results after adding policies" width="1264" height="952" loading="lazy">
+    <figcaption>Report-only policy evaluation (synthetic demo data)</figcaption>
   </figure>
 
   <h2>Get the app and system requirements</h2>
@@ -183,7 +212,7 @@
     <li><a href="https://ca-log-viewer.sumikkolab.com/">CA Log Viewer</a></li>
     <li><a href="https://dmarc-analysis.sumikkolab.com/">DMARC Analysis Assistant</a></li>
   </ul>
-  <p class="updated">Last updated: 2026-11-09</p>
+  <p class="updated">Last updated: 2026-11-17</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a> | <a href="manual/">Manual</a> | <a href="support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>
