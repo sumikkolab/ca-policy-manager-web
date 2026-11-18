@@ -196,7 +196,7 @@
   <h3>Will the app change anything in my tenant?</h3>
   <p>No. CA Policy Manager uses read-only permissions. Change proposals in the paid edition are text only, and an administrator decides whether to apply them.</p>
   <h3>Where is the data stored?</h3>
-  <p>On this PC, in the current Windows user's folder. The app does not send it to the publisher or to any third party. User names and group membership, policy definitions, and connection settings are encrypted. Sign-in records, application display names, and the consent record are not. See <a href="manual/data.html">Data storage and deletion</a> for details.</p>
+  <p>Normally on this PC, in the current Windows user's folder. In the Microsoft Store version, Windows may store it in the corresponding location under %LocalAppData%\Packages. The app does not send it to the publisher or to any third party. User names and group membership, policy definitions, and connection settings are encrypted. Sign-in records, application display names, and the consent record are not. See <a href="manual/data.html">Data storage and deletion</a> for details.</p>
   <h3>Which permissions does it need?</h3>
   <p>AuditLog.Read.All, Policy.Read.All, and User.Read.All are required. Application.Read.All and GroupMember.Read.All are optional; the app uses them to show app names and group members. All five are read-only delegated permissions.</p>
   <h3>Are non-interactive sign-ins included?</h3>

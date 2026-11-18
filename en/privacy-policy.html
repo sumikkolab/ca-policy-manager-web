@@ -38,7 +38,7 @@
     <li>User and group display names, and groups' members and parent groups (only to search for and check emergency access accounts and to show groups in the policy check; kept in memory only, except that the user display names and user names contained in the sign-in logs are stored encrypted, as described in "2. Storage"; the permission to read group information is optional)</li>
   </ul>
   <h2>2. Storage</h2>
-  <p>Retrieved information is stored only on this PC, in the current Windows user's folder. It is not stored on any server of the publisher.</p>
+  <p>Retrieved information is normally stored only on this PC, in the current Windows user's folder. It is not stored on any server of the publisher. In the Microsoft Store version, Windows may store it in the corresponding location under %LocalAppData%\Packages.</p>
   <ul>
     <li>Sign-in records are stored unencrypted and contain full IP addresses (user names are hashed). There is no retention limit and nothing is deleted automatically; apart from being replaced when the same period is retrieved again, the records remain until you delete them.</li>
     <li>User names and group membership, policy definitions, and connection settings (such as the tenant ID) are stored encrypted.</li>
