@@ -99,6 +99,7 @@
     <li>Overlap of excluded groups: the number of excluded groups that overlap</li>
     <li>Defender for Cloud Apps (MDCA) integration: the number of related policies</li>
   </ul>
+  <p>For "Requires multifactor authentication (MFA) for all users", the check shows Candidate, not No issue found, for a policy that excludes groups or roles (other than those of the emergency access accounts you specified) or excludes apps. If you have not specified emergency access accounts, user exclusions are treated as emergency access. For "Blocks legacy authentication", a block that does not cover all users and all apps does not count as closing the gap.</p>
   <h3>How do I notice sudden sign-in spikes, rising failure rates, or unusual hours?</h3>
   <p>The app splits sign-in counts into success, failure, interrupted, not applied, and other result. It compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation. The last interval of the selected period is treated as now, and the average of the earlier retrieved intervals is the baseline. For the failure rate, the baseline is the total failures of those intervals divided by their total sign-ins. Time-of-day patterns are checked only when the period is 7 or 30 days and at least 7 days have been retrieved.</p>
   <p>Limits: the app retrieves interactive sign-ins only; non-interactive sign-ins are not included. The period is 30 days at most. Results are estimates from the app's own computation and may not match Microsoft's official evaluation. Microsoft Entra ID P1 or P2 is required. The app never changes your tenant settings. To see results without waiting for real sign-ins, or to preview the impact of a report-only policy, see the <a href="#paid-edition">paid-edition features below</a>.</p>
@@ -138,6 +139,7 @@
   </figure>
   <h3>Sign-in trends</h3>
   <p>See how sign-in counts change, split into success, failure, interrupted, not applied, and other result. The app compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation.</p>
+  <p>When counts are large, the app shortens the counts above the bars (for example, 12.3K) and leaves some out where they would overlap, but the highest bar, the lowest bar, and marked bars keep theirs.</p>
   <figure>
     <img src="../manual/images/trends-en.png" alt="The Trends screen with the deviations from the baseline and the change in sign-in counts" width="1264" height="952" loading="lazy">
     <figcaption>Trends (synthetic demo data)</figcaption>
