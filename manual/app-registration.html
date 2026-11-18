@@ -33,8 +33,8 @@
   <h2>必要な条件</h2>
   <ul>
     <li>ライセンス: Microsoft Entra ID P1 または P2</li>
-    <li>サインインするユーザーのロール: Global Reader を推奨します。条件付きアクセスの結果とポリシーの全項目を読み取れます。Reports Reader だけでは、適用されたポリシーの情報が応答から省かれます。</li>
-    <li>管理者の同意: Privileged Role Administrator が行います。</li>
+    <li>サインインするユーザー: サインインログとポリシーを読み取れる権限を持つアカウントでサインインしてください。</li>
+    <li>管理者の同意: テナントの管理者が Microsoft Entra 管理センターで行います(詳しいロールは Microsoft の公式文書を参照してください)。</li>
   </ul>
   <h2>1. アプリを登録する</h2>
   <ol>
@@ -48,7 +48,7 @@
     <li>次の 2 つの URI を追加して保存します。<code>&lt;クライアント ID&gt;</code> は、「概要」(Overview)に表示される「アプリケーション (クライアント) ID」(Application (client) ID)に置き換えます。
       <ul>
         <li><code>ms-appx-web://microsoft.aad.brokerplugin/&lt;クライアント ID&gt;</code>(通常のサインインで使います)</li>
-        <li><code>https://login.microsoftonline.com/common/oauth2/nativeclient</code>(ブラウザーを表示してサインインするときに使います)</li>
+        <li><code>https://login.microsoftonline.com/common/oauth2/nativeclient</code>(サインインのリダイレクト先として設定します)</li>
       </ul>
     </li>
   </ol>
@@ -63,11 +63,11 @@
     <tr><td><code>GroupMember.Read.All</code></td><td>任意</td><td>グループの名前、メンバー、上位のグループの読み取り。無くても他の機能は利用できます。</td></tr>
   </table>
   <h2>4. 管理者の同意を付与する</h2>
-  <p>「API のアクセス許可」で「{tenant} に管理者の同意を付与」(Grant admin consent for {tenant})を選択します。Privileged Role Administrator が行います。任意のアクセス許可は、必要になったときにアプリが同意を求めます。</p>
+  <p>「API のアクセス許可」で「{tenant} に管理者の同意を付与」(Grant admin consent for {tenant})を選択します。テナントの管理者が行います(詳しいロールは Microsoft の公式文書を参照してください)。任意のアクセス許可は、必要になったときにアプリが同意を求めます。</p>
   <h2>5. ID を控える</h2>
   <p>「概要」(Overview)に表示される「アプリケーション (クライアント) ID」(Application (client) ID)と「ディレクトリ (テナント) ID」(Directory (tenant) ID)を控え、<a href="connection.html">接続設定</a>に入力します。</p>
   <div class="chapter-nav"><a href="getting-started.html">前へ: 始め方</a><a href="connection.html">次へ: 接続設定</a></div>
-  <p class="updated">最終更新: 2026-11-04</p>
+  <p class="updated">最終更新: 2026-11-18</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-use.html">利用規約</a> | <a href="../manual/">マニュアル</a> | <a href="../support.html">サポート</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>
