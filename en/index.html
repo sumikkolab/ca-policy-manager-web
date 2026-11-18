@@ -40,7 +40,7 @@
         "Cannot tell whether Conditional Access covers guests → count of guest sign-ins, and which of the six guest and external user types are not covered",
         "Cannot tell whether policies reach the Microsoft recommendations → checks the gap against 16 of the 21 templates",
         "Policy still in report-only mode or limited to some users → shows the cause and where to check",
-        "A user says they cannot sign in → shows why a sign-in was allowed or blocked, and whether a policy blocked it or the policies were met but the sign-in itself failed",
+        "A user says they cannot sign in → shows why a sign-in was allowed or blocked, and whether a policy blocked it, the policies were met but the sign-in itself failed, or the sign-in was interrupted midway",
         "Groups used by policies are empty or deleted, or emergency access accounts are not excluded → Policy check (also covers overlapping excluded groups and Defender for Cloud Apps integration)",
         "Want to notice sudden sign-in increases, failure rates, and time-of-day patterns → comparison with the baseline",
         "Want results without waiting for real sign-ins → CA simulation (paid edition)",
@@ -88,7 +88,7 @@
   <h3>How do I find a policy that is still in report-only mode?</h3>
   <p>If a policy you meant to turn on is still in report-only mode, or covers only some users, the app shows the cause and where to check. For policies with settings that Microsoft Graph cannot return, it directs you to the admin center.</p>
   <h3>A user says they cannot sign in. How do I see why they were blocked?</h3>
-  <p>On the Investigate tab, filter by period, user, app, and result, then select the row. The app shows why the sign-in was allowed or blocked. The sign-in details start with a conclusion that tells apart two cases: a policy blocked the sign-in, or the policies were met but the sign-in itself failed. For a sign-in blocked by a policy (an applied policy has the result failure), select Show the cause to see the policy that blocked it as a flow diagram in a separate window.</p>
+  <p>On the Investigate tab, filter by period, user, app, and result, then select the row. The app shows why the sign-in was allowed or blocked. The sign-in details start with a conclusion that tells apart three cases: a policy blocked the sign-in, the policies were met but the sign-in itself failed, or the sign-in was interrupted midway (for example, a request for MFA) rather than blocked by a policy. For a sign-in that failed or was interrupted, select Show the cause to see the policy that blocked it, or the point where it was interrupted, as a flow diagram in a separate window.</p>
   <h3>How do I find out why an unexpected sign-in was allowed?</h3>
   <p>On the same Investigate tab, select the row for the unexpected access to see the reason it was allowed.</p>
   <h3>How do I find policies that use empty groups or do not exclude emergency access accounts?</h3>
@@ -177,7 +177,7 @@
   <ul>
     <li>Get it from: <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a></li>
     <li>The app is free to download.</li>
-    <li>Paid edition: a one-time purchase add-on in Microsoft Store. Buy it from the purchase button in the app.</li>
+    <li>Paid edition: a one-time purchase add-on in Microsoft Store. Buy it from the purchase button in the app. Check the price on the Microsoft Store listing.</li>
     <li>OS: Windows 10 version 2004 or later, Windows 11</li>
     <li>Languages: Japanese, English</li>
     <li>License: Microsoft Entra ID P1 or P2</li>
@@ -186,7 +186,8 @@
   </ul>
   <h3>How to start</h3>
   <ol>
-    <li>Install the app from Microsoft Store and agree to the Terms of Use.</li>
+    <li>Install the app from Microsoft Store.</li>
+    <li>On first start, read and agree to the Terms of Use and Disclaimer.</li>
     <li><a href="manual/app-registration.html">Register an app</a> in the Microsoft Entra admin center.</li>
     <li>Enter the tenant ID and the client ID in the <a href="manual/connection.html">connection settings</a>, then run the connection test.</li>
     <li>On Home, select a time range, then select Retrieve (<a href="manual/getting-started.html">detailed steps</a>).</li>

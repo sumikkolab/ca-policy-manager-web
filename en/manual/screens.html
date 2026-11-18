@@ -49,7 +49,7 @@
   <figure><img src="../../manual/images/current-state-en.png" alt="The Current state and checks screen" width="1264" height="952"><figcaption>Current state and checks</figcaption></figure>
   <h2>Investigate</h2>
   <p>Use this screen to look into individual sign-ins. Filter the list by period, user, app, and result. Select a row to see why the sign-in was blocked or allowed. A sign-in with no result value is shown as No result recorded, and a sign-in with a value the app does not recognize is shown as Other result. The policy check shows the policy configuration. In the paid edition, you can export the listed sign-ins to CSV and HTML.</p>
-  <p>The sign-in details show a conclusion that tells apart two cases: a policy blocked the sign-in, or the policies were met but the sign-in itself failed. For a sign-in blocked by a policy (an applied policy has the result failure), select Show the cause to see the policy that blocked it as a flow diagram in a separate window.</p>
+  <p>The sign-in details show a conclusion that tells apart three cases: a policy blocked the sign-in, the policies were met but the sign-in itself failed, or the sign-in was interrupted midway (for example, a request for MFA) rather than blocked by a policy. For a sign-in that failed or was interrupted, select Show the cause to see the policy that blocked it, or the point where it was interrupted, as a flow diagram in a separate window.</p>
   <p>The policy check covers the following:</p>
   <ul>
     <li>Groups used by policies: groups marked Not found (it may have been deleted) or No members appear first. Showing members requires consent to GroupMember.Read.All.</li>
