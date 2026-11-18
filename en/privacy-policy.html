@@ -41,7 +41,7 @@
   <p>Retrieved information is normally stored only on this PC, in the current Windows user's folder. It is not stored on any server of the publisher. In the Microsoft Store version, Windows may store it in the corresponding location under %LocalAppData%\Packages.</p>
   <ul>
     <li>Sign-in records are stored unencrypted and contain full IP addresses (user names are hashed). There is no retention limit and nothing is deleted automatically; apart from being replaced when the same period is retrieved again, the records remain until you delete them.</li>
-    <li>User names and group membership, policy definitions, and connection settings (such as the tenant ID) are stored encrypted.</li>
+    <li>User names and group membership, policy definitions, connection settings (such as the tenant ID), the emergency access settings, and the per-tenant random value (salt) used to hash user names are stored encrypted.</li>
     <li>Application display names, display settings, and the consent record are stored unencrypted.</li>
     <li>Access tokens are kept in memory only and are never written to a file.</li>
   </ul>
@@ -52,9 +52,10 @@
     <li>Installation and updates from Microsoft Store, and the purchase and purchase status check of the paid edition, use Microsoft Store features.</li>
     <li>Operating-system mechanisms such as Windows Error Reporting are governed by your OS settings.</li>
     <li>When you select a link on screen, a public page such as the admin center opens in your default browser.</li>
+    <li>When you select the button to redeem a promo code, the address of the Microsoft redemption page (go.microsoft.com), which contains the code you entered, opens in your default browser. The app does not communicate with this address, does not store the code, and does not write it to any log. Because the code is part of the address, your browser history may keep it.</li>
   </ul>
   <h2>4. Deletion</h2>
-  <p>Delete stored data in Settings removes the sign-in logs, user names and membership, and policy definitions. The settings, the consent record, the random value (salt), and application display names are kept. When you switch the connected tenant, the app asks for confirmation and then deletes the stored data of the previous tenant, including the emergency access settings and application names. See <a href="manual/data.html">Data storage and deletion</a> for details. Nothing is retrieved or stored until you agree to the Terms.</p>
+  <p>Delete stored data in Settings removes the sign-in logs, user names and membership, and policy definitions. The settings, the consent record, the random value (salt), and application display names are kept. If you clear "Keep the emergency access setting" (on by default) before deleting, the emergency access settings are deleted as well. When you switch the connected tenant, the app asks for confirmation and then deletes the stored data of the previous tenant, including the emergency access settings and application names. See <a href="manual/data.html">Data storage and deletion</a> for details. Nothing is retrieved or stored until you agree to the Terms.</p>
   <h2>5. Handling</h2>
   <p>Data retrieved, stored, or exported by the app may contain personal data. Handle it in accordance with your organization's policies and applicable law.</p>
   <h2>6. Data during support</h2>
