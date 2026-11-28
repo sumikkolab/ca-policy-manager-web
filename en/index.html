@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find sign-ins no Conditional Access policy applied to | CA Policy Manager</title>
+<title>CA Policy Manager | Find sign-ins no Conditional Access policy applied to | Sumikko Lab</title>
 <meta name="description" content="As Conditional Access policies pile up, it gets hard to tell whether guest sign-ins or any other sign-ins are covered at all. CA Policy Manager is a read-only Windows app that reads your sign-in logs and policies to show sign-ins no policy applied to, why a sign-in was blocked, and policies still in report-only mode.">
 <link rel="canonical" href="https://capolicymanager.sumikkolab.com/en/">
 <link rel="alternate" hreflang="ja" href="https://capolicymanager.sumikkolab.com/">
 <link rel="alternate" hreflang="en" href="https://capolicymanager.sumikkolab.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://capolicymanager.sumikkolab.com/">
-<meta property="og:title" content="Find sign-ins no Conditional Access policy applied to | CA Policy Manager">
+<meta property="og:title" content="CA Policy Manager | Find sign-ins no Conditional Access policy applied to | Sumikko Lab">
 <meta property="og:description" content="As Conditional Access policies pile up, it gets hard to tell whether guest sign-ins or any other sign-ins are covered at all. CA Policy Manager is a read-only Windows app that reads your sign-in logs and policies to show sign-ins no policy applied to, why a sign-in was blocked, and policies still in report-only mode.">
 <meta property="og:url" content="https://capolicymanager.sumikkolab.com/en/">
 <meta property="og:type" content="website">
@@ -47,7 +47,7 @@
         "Want to know the impact of turning on a report-only policy → Report-only policy evaluation (paid edition)",
         "Want to share proposals and findings → Change proposals, CSV and HTML export (paid edition)"
       ],
-      "dateModified": "2026-11-18",
+      "dateModified": "2026-11-27",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Windows 10, Windows 11",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "url": "https://apps.microsoft.com/detail/9NKSNH83GH4N" },
@@ -78,15 +78,15 @@
 
   <h2>Problems this solves</h2>
   <h3>How do I find the conditions no Conditional Access policy applies to?</h3>
-  <p>Home shows the number of conditions with no policy applied. The app splits combinations of conditions (user, app, location, and so on) into regions based on your enabled and report-only policies, and counts the regions that no enabled policy applies to. Disabled policies are not used. The count includes combinations that no one has signed in with yet, so you can find gaps before real sign-ins hit them. If you switch to After adding in the paid edition's Report-only policy evaluation, the number on Home also shows the value after adding.</p>
+  <p>Home shows the number of conditions with no policy applied. The app splits combinations of conditions (user, app, location, and so on) into regions based on your enabled and report-only policies, and counts the regions that no enabled policy applies to. If the app cannot determine that any enabled policy applies to a region, it counts that region, even when there is a policy for which it cannot determine whether it applies. Disabled policies are not used. The count includes combinations that no one has signed in with yet, so you can find gaps before real sign-ins hit them. The number on Home reflects your current enabled policies. Switching to After adding in the paid edition's Report-only policy evaluation does not change it.</p>
   <h3>How can I check whether guest users are covered by Conditional Access?</h3>
   <p>In the sign-in search on Home, the Guests viewpoint shows how many guest sign-ins there are. Select it to open the Investigate tab, where you can filter by period, user, app, and result and review them one at a time.</p>
   <p>To check from the policy side, use Current state and checks. In the Zero Trust or Remote work category, the check for the recommendation "Require multifactor authentication for guest access" names which of the six guest and external user types your enabled policies do not cover: "Local guest", "B2B collaboration guest", "B2B collaboration member", "B2B direct connect user", "Other external user", and "Service provider".</p>
   <h3>How do I check that my policies follow the Microsoft recommended templates?</h3>
   <p>The app assesses 16 of the 21 Conditional Access policy templates on Microsoft Learn and shows where your policies differ from the recommendations, such as MFA for administrator roles. Of the other five templates, the one that needs Microsoft Purview is shown as "Not checked: needs Microsoft Purview". The remaining four, including the three AI Agents templates, are not listed. You can switch between five categories: Secure foundation, Zero Trust, Remote work, Protect administrator, and Emerging threats.</p>
-  <p>Needs action on Home counts only the eight items of the default category, Secure foundation. A flow diagram lets you switch the view between user type, device type, OS, and location. For some items, the app also shows the kind of cause. There are six kinds: a missing permission; group members cannot be retrieved because GroupMember.Read.All is not consented to; the policy has settings this app cannot read; a setting the recommendation requires does not exist in the tenant; not identified; and a temporary failure.</p>
+  <p>Needs action on Home counts only the eight items of the default category, Secure foundation. A flow diagram lets you switch the view between user type, device type, OS, and location. For some items, the app also shows the kind of cause. There are six kinds: a missing permission; group members cannot be retrieved because GroupMember.Read.All is not consented to; the policy has settings this app cannot interpret; a setting the recommendation requires does not exist in the tenant; not identified; and a temporary failure.</p>
   <h3>How do I find a policy that is still in report-only mode?</h3>
-  <p>If a policy you meant to turn on is still in report-only mode, or covers only some users, the app shows the cause and where to check. For policies with settings that Microsoft Graph cannot return, it directs you to the admin center.</p>
+  <p>If a policy you meant to turn on is still in report-only mode, or covers only some users, the app shows the cause and where to check. When settings this app cannot interpret prevent a determination, the app does not decide the result and directs you to the admin center.</p>
   <h3>A user says they cannot sign in. How do I see why they were blocked?</h3>
   <p>On the Investigate tab, filter by period, user, app, and result, then select the row. The app shows why the sign-in was allowed or blocked. The sign-in details show a conclusion sentence. The main cases are: a policy blocked the sign-in; the sign-in itself failed with an error (either the policies were met, or no policy evaluation was recorded); or the sign-in was interrupted midway (for example, at a consent screen, a password reset or registration screen, or the "Stay signed in?" prompt) rather than blocked by a policy. If the sign-in failed but no block by a policy is recorded, the app says so. For an allowed sign-in, it shows the reason. When an applied policy has the result Failure, select View the cause to see the policy that blocked the sign-in as a flow diagram in a separate window. A sign-in with no Failure policy result, such as one where the policies were met but the sign-in itself failed, or one that was interrupted, shows neither the button nor the diagram.</p>
   <h3>How do I find out why an unexpected sign-in was allowed?</h3>
@@ -99,11 +99,9 @@
     <li>Overlap of excluded groups: the number of excluded groups that overlap</li>
     <li>Defender for Cloud Apps (MDCA) integration: the number of related policies</li>
   </ul>
-  <p>For "Requires multifactor authentication (MFA) for all users", the check shows Candidate, not No issue found, for a policy that excludes groups or roles (other than those of the emergency access accounts you specified) or excludes apps. If you have not specified emergency access accounts, user exclusions are treated as emergency access. If you specified emergency access accounts, a policy that excludes any other user, or that narrows its scope by location, platform, device filter, risk, or client app type, is also a Candidate. If another policy requires MFA for all users and all apps with no exclusions or narrowing (excluding emergency access accounts is allowed), the result stays No issue found, even when other policies are Candidates. The checks that show Candidate for group, role, and app exclusions, and for exclusions of users you did not specify, are available in version 1.0.1.0 and later. In version 1.0.0.0, if the policy has no narrowing such as locations, the check shows No issue found even when these exclusions exist. For "Blocks legacy authentication", a block that does not cover all users and all apps does not count as closing the gap. Showing Candidate when a block does not cover all users and all apps is available in version 1.0.1.0 and later.</p>
+  <p>For "Requires multifactor authentication (MFA) for all users", the check shows Candidate, not No issue found, for a policy that excludes groups or roles (other than those of the emergency access accounts you specified) or excludes apps. If you have not specified emergency access accounts, user exclusions are treated as emergency access. If you specified emergency access accounts, a policy that excludes any other user is also a Candidate. Whether or not you specified them, a policy that excludes guests or external users, or narrows its scope by location, platform, device filter, risk, or client app type, is also a Candidate. If another policy requires MFA for all users and all apps with no exclusions or narrowing (excluding emergency access accounts is allowed), the result stays No issue found, even when other policies are Candidates. The checks that show Candidate for group, role, and app exclusions, and for exclusions of users you did not specify, are available in version 1.0.1.0 and later. In version 1.0.0.0, if the policy has no narrowing such as locations, the check shows No issue found even when these exclusions exist. For "Blocks legacy authentication", only a block that includes all users and all apps, with no app or guest/external user exclusion and no narrowing by location, platform, device filter, or risk, counts as closing the gap. A block that excludes users, groups, or roles still counts. Showing Candidate when a block does not cover all users and all apps is available in version 1.0.1.0 and later.</p>
   <h3>How do I notice sudden sign-in spikes, rising failure rates, or unusual hours?</h3>
   <p>The app splits sign-in counts into success, failure, interrupted, not applied, and other result. It compares sudden increases for an app, the failure rate, and time-of-day patterns with the baseline, and shows any deviation. The last interval of the selected period is treated as now, and the average of the earlier retrieved intervals is the baseline. For the failure rate, the baseline is the total failures of those intervals divided by their total sign-ins. Time-of-day patterns are checked only when the period is 7 or 30 days and at least 7 days have been retrieved.</p>
-  <p>Limits: the app retrieves interactive sign-ins only; non-interactive sign-ins are not included. The period is 30 days at most. Results are estimates from the app's own computation and may not match Microsoft's official evaluation. Microsoft Entra ID P1 or P2 is required. The app never changes your tenant settings. To see results without waiting for real sign-ins, or to preview the impact of a report-only policy, see the <a href="#paid-edition">paid-edition features below</a>.</p>
-  <p>What the impact preview covers: the paid edition's Report-only policy evaluation shows how results change, for each combination of conditions, when you add report-only policies to your existing enabled policies. It does not show the impact on individual users, or the impact of editing a policy that is already enabled.</p>
 
   <h2>What you can see</h2>
   <ul>
@@ -121,7 +119,7 @@
   </figure>
   <h3>How your policies compare with the recommendations</h3>
   <p>The app checks your policies against the recommendations in the Microsoft Learn templates, category by category. If a policy you meant to turn on is still in report-only mode, or a policy covers only some users, the app shows the cause and where to check.</p>
-  <p>The app shows results in a flow diagram. You can switch the view between user type, device type, OS, and location. For policies with settings that Microsoft Graph cannot return, the app directs you to the admin center.</p>
+  <p>The app shows results in a flow diagram. You can switch the view between user type, device type, OS, and location. When settings this app cannot interpret prevent a determination, the app does not decide the result and directs you to the admin center.</p>
   <figure>
     <img src="../manual/images/current-state-en.png" alt="The Current state and checks screen showing the comparison with recommended policies by category" width="1264" height="952" loading="lazy">
     <figcaption>Current state and checks (synthetic demo data)</figcaption>
@@ -175,6 +173,13 @@
     <figcaption>Report-only policy evaluation (synthetic demo data)</figcaption>
   </figure>
 
+  <h2>Who it is for</h2>
+  <p>CA Policy Manager is for IT administrators who manage their own organization's Microsoft Entra tenant.</p>
+
+  <h2>What it cannot do</h2>
+  <p>Limits: the app retrieves interactive sign-ins only; non-interactive sign-ins are not included. The period is 30 days at most. Results are estimates from the app's own computation and may not match Microsoft's official evaluation. Microsoft Entra ID P1 or P2 is required. The app never changes your tenant settings. To see results without waiting for real sign-ins, or to preview the impact of a report-only policy, see the <a href="#paid-edition">paid-edition features above</a>.</p>
+  <p>What the impact preview covers: the paid edition's Report-only policy evaluation shows how results change, for each combination of conditions, when you add report-only policies to your existing enabled policies. It does not show the impact on individual users, or the impact of editing a policy that is already enabled.</p>
+
   <h2>Get the app and system requirements</h2>
   <ul>
     <li>Get it from: <a href="https://apps.microsoft.com/detail/9NKSNH83GH4N">Microsoft Store</a></li>
@@ -215,7 +220,7 @@
     <li><a href="https://ca-log-viewer.sumikkolab.com/">CA Log Viewer</a></li>
     <li><a href="https://dmarc-analysis.sumikkolab.com/">DMARC Analysis Assistant</a></li>
   </ul>
-  <p class="updated">Last updated: 2026-11-19</p>
+  <p class="updated">Last updated: 2026-11-27</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a> | <a href="manual/">Manual</a> | <a href="support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>

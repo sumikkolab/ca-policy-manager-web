@@ -44,6 +44,7 @@
     <li>User names and group membership, policy definitions, connection settings (such as the tenant ID), the emergency access settings, and the per-tenant random value (salt) used to hash user names are stored encrypted.</li>
     <li>Application display names, display settings, and the consent record are stored unencrypted.</li>
     <li>Access tokens are kept in memory only and are never written to a file.</li>
+    <li>When you save settings while the settings file is damaged and cannot be loaded, the original file is kept under another name in the same location.</li>
   </ul>
   <h2>3. Data transmission</h2>
   <p>The app itself communicates only with Microsoft sign-in and Microsoft Graph (read-only). The app does not send retrieved information, usage data, or error information to the publisher or to any third party. No data is collected for analytics, advertising, or tracking.</p>
@@ -54,7 +55,7 @@
     <li>When you select a link on screen, a public page such as the admin center opens in your default browser.</li>
   </ul>
   <h2>4. Deletion</h2>
-  <p>Delete stored data in Settings removes the sign-in logs, user names and membership, and policy definitions. The settings, the consent record, the random value (salt), and application display names are kept. If you clear "Keep the emergency access setting" (on by default) before deleting, the emergency access settings are deleted as well. When you switch the connected tenant, the app asks for confirmation and then deletes the stored data of the previous tenant, including the emergency access settings and application names. See <a href="manual/data.html">Data storage and deletion</a> for details. Nothing is retrieved or stored until you agree to the Terms.</p>
+  <p>Delete stored data in Settings removes the sign-in logs, user names and membership, and policy definitions. The settings, the consent record, the random value (salt), and application display names are kept. The emergency access entries are part of the settings, so they are kept. You can remove them on the Settings screen. A settings file kept under another name is deleted when data is deleted because you switch tenants. When you switch the connected tenant, the app asks for confirmation and then deletes the stored data of the previous tenant, including the emergency access settings and application names. See <a href="manual/data.html">Data storage and deletion</a> for details. Nothing is retrieved or stored until you agree to the Terms.</p>
   <h2>5. Handling</h2>
   <p>Data retrieved, stored, or exported by the app may contain personal data. Handle it in accordance with your organization's policies and applicable law.</p>
   <h2>6. Data during support</h2>
@@ -63,7 +64,7 @@
   <p>This policy may change. When it does, this page is updated.</p>
   <h2>8. Contact</h2>
   <p>Publisher: Sumikko Lab<br>Contact: <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a></p>
-  <p class="updated">Last updated: 2026-11-19</p>
+  <p class="updated">Last updated: 2026-11-27</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use</a> | <a href="manual/">Manual</a> | <a href="support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>

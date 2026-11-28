@@ -46,7 +46,7 @@
   <h2>Delete stored data</h2>
   <ol>
     <li>In Settings, select Delete stored data.</li>
-    <li>On the confirmation screen, select Delete. This cannot be undone.</li>
+    <li>On the confirmation screen, select Yes. This cannot be undone.</li>
   </ol>
   <h3>What is deleted</h3>
   <ul>
@@ -60,13 +60,21 @@
     <li>The consent record</li>
     <li>The random value (salt)</li>
     <li>Application display names</li>
+    <li>A damaged settings file that was kept under another name (deleted when data is deleted because you switch tenants)</li>
   </ul>
-  <p>Keep the emergency access setting is on by default. If you turn it off, the emergency access entries are also deleted. You can turn off saving policy definitions and named locations in Settings; turning it off deletes what was saved.</p>
+  <p>The emergency access entries are part of the settings, so they remain after the deletion. You can remove them on the Settings screen. If emergency access entries remain, the app still asks for confirmation after the deletion before it retrieves data from a different tenant. You can turn off saving policy definitions and named locations in Settings; turning it off deletes what was saved.</p>
   <div class="warn-box"><p>CSV, HTML, and change proposal files you export are saved where you choose and are not part of this deletion. They may contain user names and IP addresses, so manage them according to your organization's policies.</p></div>
   <h2>When you switch the connected tenant</h2>
-  <p>If the tenant you sign in to differs from the tenant of the stored data, the app asks for confirmation before it retrieves data. If you select Yes, the app deletes the stored data of the previous tenant (sign-in logs, user names, UPN cache, user IDs, policy definitions, emergency access settings, and application names) and then retrieves the data. You cannot restore the deleted data. The other settings and consent are kept. If you do not select Yes, the retrieval is canceled and the stored data does not change.</p>
+  <p>If the tenant you sign in to differs from the tenant of the stored data, the app asks for confirmation before it retrieves data. If you select Yes, the app deletes the stored data of the previous tenant (sign-in logs, user names, UPN cache, user IDs, policy definitions, emergency access settings, application names, and any settings file kept under another name) and then retrieves the data. You cannot restore the deleted data. The other settings and consent are kept. If you do not select Yes, the retrieval is canceled and the stored data does not change.</p>
+  <h2>When stored data or settings cannot be read</h2>
+  <ul>
+    <li>A temporary read failure does not cause the app to delete or overwrite the files of stored user names, policy definitions, application display names, or settings.</li>
+    <li>If the file of user names, policy definitions, or application display names cannot be used (it is damaged, cannot be decrypted, has a different format version, or is too large), the app deletes that file and gets the data again in later retrievals. Earlier generations of policy definitions cannot be restored.</li>
+    <li>If the stored sign-in logs cannot be read, the app shows what happened and what to do. If the stored data is from a newer version of the app, the app does not read or write it. Update the app.</li>
+    <li>If the app starts without loading the settings file, it does not use the emergency access entries and shows the reason and what to do. If the file is damaged, the app keeps the original under another name when it saves settings, and the settings that could not be loaded take their default values. If the settings file is from a newer version of the app, it is not overwritten, and setting changes cannot be saved.</li>
+  </ul>
   <div class="chapter-nav"><a href="screens.html">Previous: Main screens</a><a href="./">Contents</a></div>
-  <p class="updated">Last updated: 2026-11-18</p>
+  <p class="updated">Last updated: 2026-11-27</p>
   <div class="footer">&copy; 2026 Sumikko Lab. CA Policy Manager.<br>
     <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-use.html">Terms of Use</a> | <a href="../manual/">Manual</a> | <a href="../support.html">Support</a> | <a href="mailto:support@sumikkolab.com">support@sumikkolab.com</a>
   </div>
