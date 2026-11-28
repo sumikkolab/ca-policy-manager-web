@@ -8,7 +8,7 @@
 - 発行元 / Publisher: Sumikko Lab
 - できること / Features: 適用ポリシーなしの条件とサインインの確認、許可・ブロックの理由の表示、Microsoft Learn のテンプレートの推奨との差の点検、サインインの傾向とベースラインとの差の確認 / Find conditions and sign-ins with no policy applied, see why a sign-in was allowed or blocked, compare policies with Microsoft Learn template recommendations, and compare sign-in trends with the baseline
 - 有償版の機能 / Paid edition features: CAシミュレーション、レポート専用ポリシーの評価、変更案の作成、CSV・HTML のエクスポート / CA simulation, report-only policy evaluation, change proposals, CSV and HTML export
-- 制限 / Limits: 対象は対話型のサインインのみで、期間は最大 30 日。結果はアプリの計算による推定 / Interactive sign-ins only, for a period of up to 30 days. Results are estimates from the app's own computation
+- 対象 / Scope: 対話型のサインイン(最大 30 日分)。結果はアプリが算出する推定値 / Interactive sign-ins, up to 30 days. The app calculates the results as estimates
 - 変更の有無 / Tenant changes: テナントの設定は変更しない / The app does not change tenant settings
 - 入手 / Availability: アプリは無料で入手可能。有償版は Microsoft Store の買い切りのアドオン / The app is free to download. The paid edition is a one-time purchase add-on in Microsoft Store
 - 動作環境 / Requirements: Windows 10 バージョン 2004 以降、Windows 11 / Windows 10 version 2004 or later, Windows 11
